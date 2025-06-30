@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    * {
+     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -48,6 +48,82 @@
       list-style: none;
       display: flex;
       gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      position: relative;
+      padding: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.4s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #222;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: linear-gradient(to right, #ff5f6d, #ffc371);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        display: none;
+        padding: 1rem 0;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 600px;
     }
 .card img {
       width: 100%;
@@ -270,7 +346,7 @@
 
       nav ul {
         flex-direction: column;
-        background: #ff90b3;
+        background:linear-gradient(to right, #ff5f6d, #ffc371);
         position: absolute;
         top: 70px;
         left: 0;
@@ -297,6 +373,9 @@
    <header>
     <div class="logo">
       <img src="https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/d/8/b/d8bd07eba2fb8156a43041fb1496bb2721da9e49.png" alt="Logo">
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+      <i class="fas fa-bars"></i>
     </div>
     <nav>
       <ul>
@@ -478,7 +557,7 @@
 
 
   <script>
-    const roles = ["Web Developer", "Web Designer", "Python Developer"];
+    const roles = ["Web Developer", "Python Developer", "Data Science Enthusiasist"];
     let index = 0;
     setInterval(() => {
       document.getElementById("career").innerText = roles[index];
