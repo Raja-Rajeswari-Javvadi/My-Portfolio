@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raja Rajeswari Javvadi | Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
@@ -28,7 +28,34 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Animation Classes */
+        /* Engineering Timeline */
+        .timeline-container {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary) 0%, rgba(99, 102, 241, 0) 100%);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0.35rem;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary);
+            z-index: 10;
+        }
+
+        /* Animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -38,45 +65,6 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Engineering Timeline Styling */
-        .timeline-container {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--primary), transparent);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -5px;
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--primary);
-        }
-
-        /* Hover Glow Effects */
-        .tech-card {
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .tech-card:hover {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px rgba(99, 102, 241, 0.3);
         }
 
         .nav-link {
@@ -95,14 +83,24 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .nav-link:hover::after { width: 100%; }
+
+        /* Card Hover */
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        ::-webkit-scrollbar { width: 8px; }
+        .premium-card:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -20px rgba(99, 102, 241, 0.4);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #020617; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
     </style>
 </head>
 <body>
@@ -110,146 +108,137 @@
     <nav class="fixed top-0 w-full z-[100] px-6 py-6">
         <div class="max-w-7xl mx-auto glass rounded-2xl px-8 h-16 flex items-center justify-between shadow-2xl">
             <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg">R</div>
-                <span class="text-xl font-bold tracking-tighter">RRJ_</span>
+                <div class="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center font-black text-white shadow-lg">R</div>
+                <span class="text-xl font-bold tracking-tighter">RRJ<span class="text-indigo-500">_</span></span>
             </div>
             
-            <div class="hidden md:flex space-x-10 text-xs font-semibold uppercase tracking-widest text-slate-400">
-                <a href="#about" class="nav-link hover:text-white">About</a>
-                <a href="#skills" class="nav-link hover:text-white">Skills</a>
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <a href="#hero" class="nav-link hover:text-white">Home</a>
+                <a href="#education" class="nav-link hover:text-white">Education</a>
+                <a href="#internships" class="nav-link hover:text-white">Internships</a>
                 <a href="#projects" class="nav-link hover:text-white">Projects</a>
-                <a href="#experience" class="nav-link hover:text-white">Experience</a>
-                <a href="#certifications" class="nav-link hover:text-white">Certs</a>
             </div>
 
-            <div class="flex items-center space-x-6">
-                <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-400 hover:text-white transition-colors">
-                    <i data-lucide="github" class="w-5 h-5"></i>
-                </a>
-                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full font-bold transition-all shadow-lg text-[11px] uppercase tracking-wider">
-                    Contact
-                </a>
-            </div>
+            <a href="mailto:rajarajeswarijavvadi@gmail.com" class="hidden sm:flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full font-bold transition-all shadow-lg text-[11px] uppercase tracking-widest">
+                <i data-lucide="mail" class="w-3.5 h-3.5"></i> Let's Talk
+            </a>
         </div>
     </nav>
 
-    <section class="min-h-screen flex items-center px-6 relative overflow-hidden">
-        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px]"></div>
+    <section id="hero" class="min-h-screen flex items-center px-6 relative">
+        <div class="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px]"></div>
+        
         <div class="max-w-5xl mx-auto relative">
-            <p class="mono text-indigo-400 mb-6 text-sm font-medium tracking-widest uppercase animate-pulse">Software Engineer | Full Stack Developer</p>
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9]">
-                Raja Rajeswari <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Javvadi.</span>
+            <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-full mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Available for 2026 Batch Placement</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
+                Software <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Engineer.</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
-                Specializing in full-stack development and AI applications. I build scalable software systems using Python, React, and Retrieval-Augmented Generation.
+            
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed font-medium">
+                I am Raja Rajeswari Javvadi, a developer specializing in full-stack architecture and AI systems. I focus on building scalable solutions and solving complex engineering problems.
             </p>
+            
             <div class="flex flex-wrap gap-6">
                 <a href="#projects" class="group bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-4 rounded-full font-bold transition-all flex items-center shadow-xl shadow-indigo-500/20">
-                    View Case Studies 
+                    Explore Work 
                     <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1"></i>
                 </a>
-                <a href="https://linkedin.com/in/raja-rajeswari" target="_blank" class="glass px-10 py-4 rounded-full font-bold flex items-center hover:bg-slate-800 transition-all">
-                    LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-32 px-6 reveal">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-4 text-sm">01.</span> Engineering Journey
-            </h3>
-            
-            <div class="grid lg:grid-cols-2 gap-20">
-                <div class="space-y-6">
-                    <p class="text-xl text-slate-300 leading-relaxed">
-                        My approach focuses on <strong>System Scalability</strong> and <strong>Backend Optimization</strong>. I bridge the gap between data insights and production-grade software.
-                    </p>
-                    <p class="text-slate-400 leading-relaxed">
-                        I specialize in building <strong>RESTful APIs</strong> and <strong>RAG systems</strong> that provide grounded AI responses. I am committed to engineering excellence in full-stack development and artificial intelligence.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 pt-4">
-                        <div class="glass p-6 rounded-2xl border-l-4 border-indigo-500">
-                            <h4 class="text-indigo-400 font-bold text-3xl">88%</h4>
-                            <p class="text-[10px] uppercase font-bold text-slate-500 mt-1">B.Tech Percentage</p>
-                        </div>
-                        <div class="glass p-6 rounded-2xl border-l-4 border-purple-500">
-                            <h4 class="text-purple-400 font-bold text-3xl">97%</h4>
-                            <p class="text-[10px] uppercase font-bold text-slate-500 mt-1">SSC Percentage</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-container space-y-12">
-                    <div class="relative">
-                        <div class="timeline-dot"></div>
-                        <h4 class="text-xl font-bold">B.Tech in CSE - Data Science</h4>
-                        <p class="text-sm text-slate-400 mt-1">Sasi Institute of Technology & Engineering</p>
-                        <p class="text-xs text-indigo-400 font-bold mt-2 uppercase">2022 — 2026 (Pursuing)</p>
-                    </div>
-                    <div class="relative">
-                        <div class="timeline-dot bg-slate-600" style="box-shadow:none;"></div>
-                        <h4 class="text-xl font-bold">Higher Secondary Education (MPC)</h4>
-                        <p class="text-sm text-slate-400 mt-1">S.V.S.S Arts & Science Junior College</p>
-                        <p class="text-xs text-slate-500 font-bold mt-2 uppercase">78% | 2020 — 2022</p>
-                    </div>
-                    <div class="relative">
-                        <div class="timeline-dot bg-slate-600" style="box-shadow:none;"></div>
-                        <h4 class="text-xl font-bold">Secondary School Education</h4>
-                        <p class="text-sm text-slate-400 mt-1">Indira Gandhi Girls High School</p>
-                        <p class="text-xs text-slate-500 font-bold mt-2 uppercase">97% | Completed 2020</p>
-                    </div>
+                <div class="flex items-center space-x-6 ml-4">
+                    <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="github"></i></a>
+                    <a href="https://linkedin.com/in/raja-rajeswari" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-32 px-6 bg-slate-900/20 reveal">
+    <section id="education" class="py-32 px-6 reveal">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-4 text-sm">02.</span> Technical Stack
+            <h3 class="text-3xl font-black mb-20 tracking-tighter flex items-center">
+                <span class="text-indigo-500 mono mr-4 text-sm">01.</span> Academic Foundation
             </h3>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass p-8 rounded-3xl tech-card">
-                    <i data-lucide="code-2" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-6 tracking-tight">Languages</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Python</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Java</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">JavaScript</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">C</span>
+            <div class="timeline-container space-y-20 max-w-3xl">
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div class="glass p-8 rounded-3xl premium-card">
+                        <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">2022 — 2026 (Pursuing)</span>
+                        <h4 class="text-2xl font-black mt-2 mb-1">B.Tech in CSE - Data Science</h4>
+                        <p class="text-slate-400 font-medium mb-4">Sasi Institute Of Technology & Engineering</p>
+                        <div class="flex items-center space-x-2 bg-indigo-500/10 w-fit px-3 py-1 rounded-lg border border-indigo-500/20">
+                            <span class="text-xs font-bold text-indigo-300">Current Percentage: 88%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="glass p-8 rounded-3xl tech-card">
-                    <i data-lucide="layers" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-6 tracking-tight">Full Stack</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">React.js</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Node.js</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Tailwind</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">MongoDB</span>
+
+                <div class="relative">
+                    <div class="timeline-dot bg-slate-700 shadow-none"></div>
+                    <div class="glass p-8 rounded-3xl premium-card">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">2020 — 2022</span>
+                        <h4 class="text-2xl font-black mt-2 mb-1">Higher Secondary Education (MPC)</h4>
+                        <p class="text-slate-400 font-medium mb-4">S.V.S.S Arts & Science Junior College</p>
+                        <div class="flex items-center space-x-2 bg-slate-500/10 w-fit px-3 py-1 rounded-lg border border-slate-500/20">
+                            <span class="text-xs font-bold text-slate-400">Percentage: 78%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="glass p-8 rounded-3xl tech-card">
-                    <i data-lucide="brain-circuit" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-6 tracking-tight">AI / ML</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">LLMs</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">RAG</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">FAISS</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">HuggingFace</span>
+
+                <div class="relative">
+                    <div class="timeline-dot bg-slate-700 shadow-none"></div>
+                    <div class="glass p-8 rounded-3xl premium-card">
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Completed 2020</span>
+                        <h4 class="text-2xl font-black mt-2 mb-1">Secondary School Education</h4>
+                        <p class="text-slate-400 font-medium mb-4">Indira Gandhi Girls High School</p>
+                        <div class="flex items-center space-x-2 bg-emerald-500/10 w-fit px-3 py-1 rounded-lg border border-emerald-500/20">
+                            <span class="text-xs font-bold text-emerald-400">Percentage: 97%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="glass p-8 rounded-3xl tech-card">
-                    <i data-lucide="wrench" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-6 tracking-tight">Tools</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Git/GitHub</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">VS Code</span>
-                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">SQL</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="internships" class="py-32 px-6 bg-slate-900/20 reveal">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-black mb-16 tracking-tighter flex items-center">
+                <span class="text-indigo-500 mono mr-4 text-sm">02.</span> Professional Experience
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass p-10 rounded-[2.5rem] premium-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-400">
+                            <i data-lucide="layout"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Nov 2022 — April 2026</span>
                     </div>
+                    <h4 class="text-2xl font-black mb-1">Web Development Intern</h4>
+                    <p class="text-indigo-400 font-bold text-sm mb-6">SkillDzire</p>
+                    <ul class="space-y-4 text-slate-400 text-sm leading-relaxed">
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500 shrink-0"></i> Developed responsive web pages using HTML, CSS, and JavaScript.</li>
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500 shrink-0"></i> Optimized usability and consistent layout across digital products.</li>
+                    </ul>
+                </div>
+
+                <div class="glass p-10 rounded-[2.5rem] premium-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center text-purple-400">
+                            <i data-lucide="brain-circuit"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">March 2024</span>
+                    </div>
+                    <h4 class="text-2xl font-black mb-1">AI/ML Intern</h4>
+                    <p class="text-purple-400 font-bold text-sm mb-6">AICTE Eduskills</p>
+                    <ul class="space-y-4 text-slate-400 text-sm leading-relaxed">
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500 shrink-0"></i> Trained Scikit-Learn models for complex classification tasks.</li>
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500 shrink-0"></i> Performed feature selection and hyperparameter tuning to boost accuracy.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -257,89 +246,83 @@
 
     <section id="projects" class="py-32 px-6 reveal">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-4 text-sm">03.</span> Projects
+            <h3 class="text-3xl font-black mb-16 tracking-tighter flex items-center">
+                <span class="text-indigo-500 mono mr-4 text-sm">03.</span> Featured Projects
             </h3>
             
             <div class="grid gap-12">
-                <div class="glass p-10 rounded-[2rem] border-slate-800 flex flex-col lg:flex-row gap-12 hover:border-indigo-500/30 transition-all duration-500">
-                    <div class="lg:w-1/2">
-                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-4 block">AI Recommendation</span>
-                        <h4 class="text-3xl font-bold mb-6 tracking-tight">Career Path Recommender</h4>
-                        <p class="text-slate-400 mb-8 leading-relaxed">
-                            AI-driven system generating personalized career roadmaps using skill profiling and LLM recommendation logic. Built with Python and Llama 3.1.
-                        </p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">PYTHON</span>
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">HUGGINGFACE</span>
+                <div class="glass p-12 rounded-[3rem] premium-card flex flex-col lg:flex-row gap-12">
+                    <div class="lg:w-3/5">
+                        <div class="flex gap-2 mb-6">
+                            <span class="text-[10px] font-black bg-indigo-500/10 text-indigo-400 px-4 py-1.5 rounded-full border border-indigo-500/20">PYTHON</span>
+                            <span class="text-[10px] font-black bg-indigo-500/10 text-indigo-400 px-4 py-1.5 rounded-full border border-indigo-500/20">LLAMA 3.1</span>
                         </div>
-                        <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-white hover:text-indigo-400 flex items-center font-bold text-sm transition-colors">
-                            <i data-lucide="github" class="mr-2 w-5 h-5"></i> View Repository
+                        <h4 class="text-4xl font-black mb-6 leading-tight">Career Path Recommender</h4>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            Engineered an AI-driven system that generates personalized career roadmaps through skill profiling. Built with prompt engineering logic for structured recommendation roadmaps.
+                        </p>
+                        <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="inline-flex items-center text-white font-bold text-sm hover:text-indigo-400 transition-colors">
+                            <i data-lucide="github" class="mr-2"></i> View Codebase
                         </a>
                     </div>
-                    <div class="lg:w-1/2 bg-slate-900/50 rounded-2xl border border-slate-800 flex items-center justify-center p-12">
-                        <i data-lucide="brain-circuit" class="w-32 h-32 text-indigo-500/10"></i>
+                    <div class="lg:w-2/5 bg-indigo-950/20 rounded-3xl border border-white/5 flex items-center justify-center p-12">
+                        <i data-lucide="compass" class="w-32 h-32 text-indigo-500/20"></i>
+                    </div>
+                </div>
+
+                <div class="glass p-12 rounded-[3rem] premium-card flex flex-col lg:flex-row gap-12">
+                    <div class="lg:w-3/5">
+                        <div class="flex gap-2 mb-6">
+                            <span class="text-[10px] font-black bg-purple-500/10 text-purple-400 px-4 py-1.5 rounded-full border border-purple-500/20">RAG</span>
+                            <span class="text-[10px] font-black bg-purple-500/10 text-purple-400 px-4 py-1.5 rounded-full border border-purple-500/20">FAISS</span>
+                        </div>
+                        <h4 class="text-4xl font-black mb-6 leading-tight">Smart Document QA System</h4>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            Built a retrieval-augmented generation (RAG) system answering queries from multi-PDF uploads. Leveraged FAISS embeddings and Streamlit for grounded conversation history.
+                        </p>
+                        <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="inline-flex items-center text-white font-bold text-sm hover:text-purple-400 transition-colors">
+                            <i data-lucide="github" class="mr-2"></i> View Codebase
+                        </a>
+                    </div>
+                    <div class="lg:w-2/5 bg-purple-950/20 rounded-3xl border border-white/5 flex items-center justify-center p-12">
+                        <i data-lucide="file-search" class="w-32 h-32 text-purple-500/20"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="py-32 px-6 bg-slate-900/20 reveal">
+    <footer class="py-24 border-t border-slate-900 bg-slate-950 px-6">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-4 text-sm">04.</span> Certifications
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
-                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-2">Python for Data Science</h4>
-                    <p class="text-xs text-slate-500 uppercase font-bold">IBM</p>
-                </div>
-                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
-                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-2">Data Analytics Simulation</h4>
-                    <p class="text-xs text-slate-500 uppercase font-bold">Deloitte</p>
-                </div>
-                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
-                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-2">TalentNext Full Stack</h4>
-                    <p class="text-xs text-slate-500 uppercase font-bold">Wipro</p>
-                </div>
-                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
-                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-2">Data Science & Analytics</h4>
-                    <p class="text-xs text-slate-500 uppercase font-bold">HP LIFE</p>
-                </div>
-                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
-                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-2">Intro to Generative AI</h4>
-                    <p class="text-xs text-slate-500 uppercase font-bold">IBM SkillsBuild</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-20 border-t border-slate-900 bg-slate-950 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
                 <div>
-                    <h2 class="text-3xl font-extrabold tracking-tighter text-white mb-4">Raja Rajeswari Javvadi</h2>
-                    <p class="text-slate-500 max-w-sm">Building software with precision engineering and AI innovation.</p>
+                    <h2 class="text-4xl font-black tracking-tighter mb-4">Raja Rajeswari Javvadi</h2>
+                    <p class="text-slate-500 text-lg max-w-sm">Designing scalable software architecture with a focus on AI innovation.</p>
                 </div>
-                <div class="flex gap-10">
+                <div class="grid grid-cols-2 gap-16">
                     <div class="space-y-4">
-                        <h4 class="text-[10px] uppercase font-bold tracking-widest text-indigo-500">Socials</h4>
+                        <h4 class="text-[10px] uppercase font-bold tracking-[0.2em] text-indigo-500">Contact</h4>
                         <ul class="space-y-2 text-sm text-slate-400">
+                            <li><a href="mailto:rajarajeswarijavvadi@gmail.com" class="hover:text-white transition">Email</a></li>
                             <li><a href="https://linkedin.com/in/raja-rajeswari" target="_blank" class="hover:text-white transition">LinkedIn</a></li>
-                            <li><a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="hover:text-white transition">GitHub</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="text-[10px] uppercase font-bold tracking-[0.2em] text-indigo-500">Links</h4>
+                        <ul class="space-y-2 text-sm text-slate-400">
+                            <li><a href="#education" class="hover:text-white transition">Education</a></li>
+                            <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="pt-10 border-t border-slate-900 mt-10 text-center text-slate-600 text-[10px] mono uppercase tracking-widest">
-                © 2026 Designed & Built by RRJ | Attili, Andhra Pradesh, India
+            
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-10 border-t border-slate-900 gap-6">
+                <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] mono">© 2026 Designed & Built by RRJ</p>
+                <div class="flex items-center text-slate-600 text-[10px] mono uppercase tracking-widest">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span>
+                    Attili, Andhra Pradesh, India
+                </div>
             </div>
         </div>
     </footer>
@@ -347,8 +330,8 @@
     <script>
         lucide.createIcons();
 
-        // Scroll Reveal Logic
-        const observerOptions = { threshold: 0.1 };
+        // Scroll Reveal Implementation
+        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
