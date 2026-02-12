@@ -1,244 +1,352 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raja Rajeswari | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg-dark: #020617;
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
 
-<title>Raja Rajeswari Javvadi | Software Engineer</title>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
+        .glass-panel:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -20px rgba(99, 102, 241, 0.3);
+        }
 
-<style>
-:root {
-  --primary: #6366f1;
-  --bg-dark: #020617;
-}
+        .text-gradient {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-dark);
-  color: #f8fafc;
-  overflow-x: hidden;
-}
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            transform: translate(-50%, -50%);
+        }
 
-.mono { font-family: 'JetBrains Mono', monospace; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-.glass {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.08);
-}
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.9s cubic-bezier(0.17,0.55,0.55,1);
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+        .education-node::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary);
+        }
 
-.premium-card {
-  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-  border: 1px solid rgba(255,255,255,0.03);
-}
-.premium-card:hover {
-  border-color: var(--primary);
-  background: rgba(99,102,241,0.05);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -20px rgba(99,102,241,0.4);
-}
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
 
-.nav-link::after {
-  content:'';
-  position:absolute;
-  width:0;
-  height:2px;
-  bottom:-4px;
-  left:0;
-  background:var(--primary);
-  transition:width .3s ease;
-}
-.nav-link:hover::after{ width:100%; }
-</style>
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary);
+            z-index: 2000;
+            transition: width 0.1s ease-out;
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full z-[100] px-6 py-6">
-<div class="max-w-7xl mx-auto glass rounded-2xl px-8 h-16 flex items-center justify-between shadow-2xl">
-<div class="flex items-center space-x-2">
-<div class="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center font-black text-white">R</div>
-<span class="text-xl font-bold tracking-tighter">RRJ_</span>
-</div>
+    <div id="progress-bar" style="width: 0%"></div>
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
 
-<div class="hidden lg:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-<a href="#hero" class="nav-link hover:text-white">Home</a>
-<a href="#profile" class="nav-link hover:text-white">Profile</a>
-<a href="#skills" class="nav-link hover:text-white">Skills</a>
-<a href="#projects" class="nav-link hover:text-white">Projects</a>
-<a href="#internships" class="nav-link hover:text-white">Experience</a>
-<a href="#certifications" class="nav-link hover:text-white">Certs</a>
-</div>
+    <nav class="fixed top-0 w-full z-[100] px-6 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-panel px-8 py-4 rounded-2xl">
+            <div class="text-2xl font-extrabold tracking-tighter">RR<span class="text-indigo-500">_</span></div>
+            <div class="hidden lg:flex items-center space-x-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#tech" class="nav-link">Stack</a>
+                <a href="#internships" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certs</a>
+            </div>
+            <a href="mailto:rajarajeswarijavvadi@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full transition shadow-lg text-[10px] font-bold uppercase tracking-widest">Hire Me</a>
+        </div>
+    </nav>
 
-<a href="mailto:rajarajeswarijavvadi@gmail.com"
-class="hidden sm:flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full font-bold shadow-lg text-[10px] uppercase tracking-widest">
-Contact Me
-</a>
-</div>
-</nav>
+    <section id="about" class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="text-center max-w-4xl">
+            <div class="mb-6 inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-full">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-[0.2em]">Ready for 2026 Opportunities</span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-tight">
+                Raja Rajeswari <br> <span class="text-gradient">Javvadi</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-mono text-slate-400 mb-10 h-8" id="typewriter"></p>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+                Aspiring Software Developer specializing in full-stack and AI applications. Focused on building scalable systems and RAG-based architectures.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#projects" class="bg-white text-black px-10 py-4 rounded-xl font-bold hover:scale-105 transition duration-300">View Projects</a>
+                <div class="flex items-center space-x-6 text-slate-400 ml-4">
+                    <a href="https://github.com/Raja-Rajeswari-Javvadi" class="hover:text-white transition"><i data-lucide="github"></i></a>
+                    <a href="https://linkedin.com/in/raja-rajeswari" class="hover:text-white transition"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section id="hero" class="min-h-screen flex items-center px-6">
+    <section id="education" class="py-32 px-6 max-w-5xl mx-auto reveal">
+        <h2 class="text-4xl font-extrabold mb-20 tracking-tighter flex items-center">
+            <span class="text-indigo-500 mono mr-4 text-sm">01.</span> Academic Journey
+        </h2>
+        <div class="relative border-l-2 border-slate-800 ml-4 md:ml-0 md:mx-auto">
+            <div class="mb-20 pl-10 relative education-node">
+                <span class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">2022 — 2026 (Pursuing)</span>
+                <h3 class="text-2xl font-bold mt-2">B.Tech in CSE - Data Science</h3>
+                <p class="text-slate-400 mt-1 italic">Sasi Institute Of Technology & Engineering</p>
+                <div class="mt-4 inline-block bg-slate-800/50 px-4 py-1.5 rounded-lg border border-slate-700 text-xs font-bold">
+                    Aggregate: <span class="text-white">88%</span>
+                </div>
+            </div>
+            <div class="mb-20 pl-10 relative education-node">
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">2020 — 2022</span>
+                <h3 class="text-2xl font-bold mt-2">Higher Secondary Education (MPC)</h3>
+                <p class="text-slate-400 mt-1 italic">S.V.S.S Arts & Science Junior College</p>
+                <div class="mt-4 inline-block bg-slate-800/50 px-4 py-1.5 rounded-lg border border-slate-700 text-xs font-bold">
+                    Aggregate: <span class="text-white">78%</span>
+                </div>
+            </div>
+            <div class="pl-10 relative education-node">
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Completed 2020</span>
+                <h3 class="text-2xl font-bold mt-2">Secondary School Education</h3>
+                <p class="text-slate-400 mt-1 italic">Indira Gandhi Girls High School</p>
+                <div class="mt-4 inline-block bg-slate-800/50 px-4 py-1.5 rounded-lg border border-slate-700 text-xs font-bold">
+                    Aggregate: <span class="text-white">97%</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="max-w-5xl mx-auto">
+    <section id="tech" class="py-32 px-6 max-w-7xl mx-auto reveal">
+        <h2 class="text-4xl font-extrabold mb-20 tracking-tighter text-center">Technical Ecosystem</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel p-8 rounded-3xl">
+                <i data-lucide="code" class="text-indigo-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">Languages</h3>
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                    <span>Python,</span> <span>Java,</span> <span>C,</span> <span>JavaScript</span>
+                </div>
+            </div>
+            <div class="glass-panel p-8 rounded-3xl">
+                <i data-lucide="layers" class="text-purple-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">Frontend</h3>
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                    <span>React.js,</span> <span>Tailwind,</span> <span>Bootstrap,</span> <span>HTML5/CSS3</span>
+                </div>
+            </div>
+            <div class="glass-panel p-8 rounded-3xl">
+                <i data-lucide="brain" class="text-pink-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">AI/ML</h3>
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                    <span>LLMs,</span> <span>RAG,</span> <span>FAISS,</span> <span>Machine Learning</span>
+                </div>
+            </div>
+            <div class="glass-panel p-8 rounded-3xl">
+                <i data-lucide="settings" class="text-emerald-400 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">Tools</h3>
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                    <span>Git/GitHub,</span> <span>VS Code,</span> <span>Hugging Face,</span> <span>SQL/MongoDB</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="inline-flex items-center bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-full mb-8">
-<span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">
-🎯 Actively seeking Software Engineer roles — 2026 Graduate
-</span>
-</div>
+    <section id="internships" class="py-32 px-6 bg-slate-950/50 reveal">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-extrabold mb-16 tracking-tighter">Experience</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-panel p-10 rounded-[2.5rem]">
+                    <span class="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Nov 2022 — April 2026</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-2">Web Development Intern</h3>
+                    <p class="text-indigo-400 font-bold text-sm mb-6">SkillDzire</p>
+                    <ul class="text-slate-400 text-sm space-y-4">
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500"></i> Developed responsive pages using HTML, CSS, and JS.</li>
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500"></i> Worked on ETL workflows for reporting.</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-10 rounded-[2.5rem]">
+                    <span class="text-[10px] font-bold text-purple-500 uppercase tracking-widest">March 2024</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-2">AI/ML Intern</h3>
+                    <p class="text-purple-400 font-bold text-sm mb-6">AICTE Eduskills</p>
+                    <ul class="text-slate-400 text-sm space-y-4">
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500"></i> Trained Scikit-Learn models for classification.</li>
+                        <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500"></i> Performed hyperparameter tuning for accuracy.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h1 class="text-6xl md:text-8xl font-black mb-8 leading-[0.9]">
-Raja Rajeswari <br>
-<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Javvadi.</span>
-</h1>
+    <section id="projects" class="py-32 px-6 max-w-7xl mx-auto reveal">
+        <h2 class="text-4xl font-extrabold mb-16 tracking-tighter">Selected Engineering Work</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="glass-panel overflow-hidden rounded-[2.5rem] group">
+                <div class="p-10">
+                    <div class="flex space-x-3 mb-6">
+                        <span class="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded text-[10px] font-bold uppercase">Python</span>
+                        <span class="bg-blue-500/10 text-blue-400 px-3 py-1 rounded text-[10px] font-bold uppercase">LLAMA 3.1</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-400 transition">Career Path Recommender</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">AI-driven system generating personalized career trajectories using skill profiling and LLM logic.</p>
+                    <a href="https://github.com/Raja-Rajeswari-Javvadi" class="inline-flex items-center font-bold text-sm text-indigo-400">Codebase <i data-lucide="external-link" class="ml-2 w-4 h-4"></i></a>
+                </div>
+            </div>
+            <div class="glass-panel overflow-hidden rounded-[2.5rem] group">
+                <div class="p-10">
+                    <div class="flex space-x-3 mb-6">
+                        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded text-[10px] font-bold uppercase">RAG</span>
+                        <span class="bg-pink-500/10 text-pink-400 px-3 py-1 rounded text-[10px] font-bold uppercase">FAISS</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-emerald-400 transition">Smart Document QA</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">RAG-based system utilizing FAISS embeddings to answer queries from multiple documents.</p>
+                    <a href="https://github.com/Raja-Rajeswari-Javvadi" class="inline-flex items-center font-bold text-sm text-emerald-400">Codebase <i data-lucide="external-link" class="ml-2 w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p class="text-lg text-slate-400 max-w-2xl mb-12">
-Software Engineer focused on frontend and AI-powered applications.
-I build interactive products, integrate intelligent systems, and turn ideas into scalable real-world solutions through clean code.
-</p>
+    <section id="certifications" class="py-32 px-6 max-w-7xl mx-auto reveal">
+        <h2 class="text-center text-4xl font-extrabold mb-16 tracking-tighter">Professional Badges</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-panel p-6 rounded-2xl flex items-center space-x-5">
+                <div class="bg-indigo-500/20 p-4 rounded-xl text-indigo-400"><i data-lucide="award"></i></div>
+                <div><h4 class="font-bold text-sm leading-tight">Python for Data Science</h4><p class="text-[10px] text-slate-500 uppercase mt-1">IBM</p></div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl flex items-center space-x-5">
+                <div class="bg-blue-500/20 p-4 rounded-xl text-blue-400"><i data-lucide="award"></i></div>
+                <div><h4 class="font-bold text-sm leading-tight">Data Analytics Simulation</h4><p class="text-[10px] text-slate-500 uppercase mt-1">Deloitte</p></div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl flex items-center space-x-5">
+                <div class="bg-purple-500/20 p-4 rounded-xl text-purple-400"><i data-lucide="award"></i></div>
+                <div><h4 class="font-bold text-sm leading-tight">DotNet Full Stack</h4><p class="text-[10px] text-slate-500 uppercase mt-1">Wipro</p></div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl flex items-center space-x-5">
+                <div class="bg-pink-500/20 p-4 rounded-xl text-pink-400"><i data-lucide="award"></i></div>
+                <div><h4 class="font-bold text-sm leading-tight">Intro to Generative AI</h4><p class="text-[10px] text-slate-500 uppercase mt-1">IBM SkillsBuild</p></div>
+            </div>
+            <div class="glass-panel p-6 rounded-2xl flex items-center space-x-5">
+                <div class="bg-emerald-500/20 p-4 rounded-xl text-emerald-400"><i data-lucide="award"></i></div>
+                <div><h4 class="font-bold text-sm leading-tight">Data Science & Analytics</h4><p class="text-[10px] text-slate-500 uppercase mt-1">HP LIFE</p></div>
+            </div>
+        </div>
+    </section>
 
-<div class="flex flex-wrap gap-6">
-<a href="#projects" class="bg-indigo-600 px-10 py-4 rounded-full font-bold shadow-xl">Explore Projects</a>
-<a href="https://ik.imagekit.io/fu4uxhoyq/Raja%20Rajeswari%20Javvadi%20Resume.pdf"
-target="_blank"
-class="bg-white/10 border border-white/20 px-8 py-4 rounded-full font-bold">
-View Resume
-</a>
-</div>
+    <footer class="py-20 border-t border-slate-900 bg-slate-950 px-6 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-left">
+                <h3 class="text-2xl font-extrabold tracking-tighter">RAJA RAJESWARI JAVVADI</h3>
+                <p class="text-slate-500 text-xs mt-2 uppercase tracking-[0.2em]">Crafting digital intelligence</p>
+            </div>
+            <div class="flex space-x-8 text-slate-400 text-xs uppercase font-bold tracking-widest">
+                <a href="https://github.com/Raja-Rajeswari-Javvadi" class="hover:text-white transition">GitHub</a>
+                <a href="https://linkedin.com/in/raja-rajeswari" class="hover:text-white transition">LinkedIn</a>
+                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="hover:text-white transition">Email</a>
+            </div>
+            <p class="text-slate-600 text-[10px] uppercase mono">© 2026 Designed & Built by RRJ</p>
+        </div>
+    </footer>
 
-</div>
-</section>
+    <script>
+        lucide.createIcons();
 
-<!-- ENGINEERING PROFILE -->
-<section id="profile" class="py-32 px-6 reveal">
-<div class="max-w-5xl mx-auto">
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
 
-<h3 class="text-3xl font-black mb-10">Engineering Profile</h3>
+        // Typewriter
+        const text = ["Software Engineer", "Full-Stack Specialist", "AI/ML Enthusiast", "Python Specialist"];
+        let count = 0, index = 0, currentText = "", letter = "";
+        (function type() {
+            if (count === text.length) count = 0;
+            currentText = text[count];
+            letter = currentText.slice(0, ++index);
+            document.getElementById("typewriter").textContent = letter;
+            if (letter.length === currentText.length) { count++; index = 0; setTimeout(type, 2000); }
+            else setTimeout(type, 100);
+        }());
 
-<p class="text-slate-400 leading-relaxed text-lg">
-Frontend-leaning software engineer passionate about building user-centric applications powered by intelligent backend systems.
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-I enjoy solving logic problems, debugging workflows, and integrating AI into real-world products.
-From UI design to deployment, I take ownership across the development lifecycle.
-</p>
-
-<div class="grid md:grid-cols-2 gap-6 mt-10 text-slate-400">
-<p>▹ Strong frontend engineering fundamentals</p>
-<p>▹ AI-integrated application development</p>
-<p>▹ Full-stack project ownership</p>
-<p>▹ Problem-solving & debugging mindset</p>
-</div>
-
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="py-32 px-6 bg-slate-900/20 reveal">
-<div class="max-w-6xl mx-auto">
-
-<h3 class="text-3xl font-black mb-16">Technical Stack</h3>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-<div class="glass p-8 rounded-3xl premium-card">
-<h4 class="font-bold mb-4">Languages</h4>
-<p class="text-slate-400 text-sm">Python, Java, C, JavaScript</p>
-</div>
-
-<div class="glass p-8 rounded-3xl premium-card">
-<h4 class="font-bold mb-4">Frontend</h4>
-<p class="text-slate-400 text-sm">React, HTML, CSS, Tailwind</p>
-</div>
-
-<div class="glass p-8 rounded-3xl premium-card">
-<h4 class="font-bold mb-4">Backend</h4>
-<p class="text-slate-400 text-sm">Node.js, REST APIs</p>
-</div>
-
-<div class="glass p-8 rounded-3xl premium-card">
-<h4 class="font-bold mb-4">AI/ML</h4>
-<p class="text-slate-400 text-sm">LLMs, RAG, FAISS</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-32 px-6 reveal">
-
-<div class="max-w-6xl mx-auto">
-
-<h3 class="text-3xl font-black mb-16">Engineering Projects</h3>
-
-<div class="glass p-12 rounded-3xl premium-card mb-12">
-<h4 class="text-4xl font-black mb-6">Career Path Recommender (LLM)</h4>
-<p class="text-slate-400 mb-6">
-Built an AI-powered recommendation system using Gemini & LLaMA models to generate personalized career roadmaps from user skills.
-</p>
-<ul class="text-slate-400 space-y-2">
-<li>▹ Designed skill-profiling and recommendation logic</li>
-<li>▹ Integrated LLM APIs</li>
-<li>▹ Flask backend + deployment</li>
-</ul>
-
-<a href="https://career-path-recommender-using-skill.onrender.com/" target="_blank"
-class="bg-indigo-600 px-6 py-3 rounded-full font-bold">Live Demo</a>
-
-<a href="https://github.com/Raja-Rajeswari-Javvadi/Career-Path-Recommender-Using-Skill-Profiling"
-target="_blank" class="ml-4 text-indigo-400 font-bold">GitHub →</a>
-</div>
-
-<div class="glass p-12 rounded-3xl premium-card">
-<h4 class="text-4xl font-black mb-6">Smart Document QA (RAG)</h4>
-<p class="text-slate-400 mb-6">
-Built RAG-based QA system enabling multi-PDF querying using embeddings and FAISS retrieval.
-</p>
-<ul class="text-slate-400 space-y-2">
-<li>▹ RAG pipeline implementation</li>
-<li>▹ Streamlit interface</li>
-<li>▹ conversation history + retrieval optimization</li>
-</ul>
-
-<a href="https://github.com/Raja-Rajeswari-Javvadi/Smart-Document-Question-Answering-System-using-RAG"
-target="_blank" class="text-indigo-400 font-bold">GitHub →</a>
-</div>
-
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer class="py-24 border-t border-slate-900 bg-slate-950 px-6">
-<div class="max-w-6xl mx-auto flex justify-between items-center">
-<h2 class="text-3xl font-black">RAJA RAJESWARI JAVVADI</h2>
-<div class="flex gap-8">
-<a href="mailto:rajarajeswarijavvadi@gmail.com">Email</a>
-<a href="https://linkedin.com/in/raja-rajeswari">LinkedIn</a>
-<a href="https://github.com/Raja-Rajeswari-Javvadi">GitHub</a>
-</div>
-</div>
-</footer>
-
-<script>
-lucide.createIcons();
-</script>
-
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            bar.style.width = pct + "%";
+        });
+    </script>
 </body>
 </html>
