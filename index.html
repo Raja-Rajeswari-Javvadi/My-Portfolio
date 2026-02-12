@@ -1,767 +1,286 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raji Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raja Rajeswari | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-    body {
-      background: #fff5f8;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --accent: #6366f1;
+            --glass: rgba(30, 41, 59, 0.7);
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            scroll-behavior: smooth;
+        }
 
-    header {
-      background: linear-gradient(to right, #ff5f6d, #ffc371);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      animation: slideDown 1s ease-out;
-    }
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    @keyframes slideDown {
-      0% { transform: translateY(-100%); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
+        .text-gradient {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .logo img {
-      height: 60px;
-    }
+        .btn-premium {
+            background: linear-gradient(45deg, #6366f1, #a855f7);
+            transition: all 0.3s ease;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px #6366f1;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      position: relative;
-      padding: 0.5rem;
-      transition: color 0.3s;
-    }
+        .typing-cursor::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      transition: width 0.4s ease;
-    }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
 
-    nav a:hover::after {
-      width: 100%;
-    }
+        .skill-card:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.05);
+        }
 
-    nav a:hover {
-      color: #222;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    @media screen and (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        background: linear-gradient(to right, #ff5f6d, #ffc371);
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        display: none;
-        padding: 1rem 0;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-    }
- #certifications {
-      padding: 2rem;
-      background-color: #ffe6ee;
-    }
-
-    
-
-    .certifications {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .certificate {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 250px;
-      transition: transform 0.3s;
-    }
-
-    .certificate:hover {
-      transform: scale(1.05);
-    }
-
-    .certificate img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 0.5rem;
-    }
-
-    .certificate-name {
-      display: block;
-      font-weight: bold;
-      color: #d81b60;
-    }
-    .intro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .intro h1 {
-      font-size: 2.5rem;
-      color: #e91e63;
-      margin-bottom: 1rem;
-    }
-
-    .intro p {
-      font-size: 1.2rem;
-      color: #444;
-      max-width: 600px;
-    }
-.card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .card .links {
-      margin-top: 1rem;
-    }
-
-    .card .links a {
-      display: inline-block;
-      margin-right: 10px;
-      color: #e91e63;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .card .links a:hover {
-      color: #c2185b;
-    }
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      position: relative;
-      padding: 0.5rem;
-      transition: color 0.3s;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 3px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      transition: width 0.4s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    nav a:hover {
-      color: #222;
-    }
-
-    .intro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 4rem 2rem;
-      text-align: center;
-      animation: fadeIn 2s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .intro img {
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border: 6px solid #ffb6c1;
-      margin-bottom: 1rem;
-      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.6);
-      animation: bounceIn 1.5s ease;
-    }
-
-    @keyframes bounceIn {
-      0%, 20%, 40%, 60%, 80%, 100% {
-        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-      }
-      0% {
-        opacity: 0;
-        transform: scale3d(.3, .3, .3);
-      }
-      20% {
-        transform: scale3d(1.1, 1.1, 1.1);
-      }
-      40% {
-        transform: scale3d(.9, .9, .9);
-      }
-      60% {
-        transform: scale3d(1.03, 1.03, 1.03);
-        opacity: 1;
-      }
-      80% {
-        transform: scale3d(.97, .97, .97);
-      }
-      100% {
-        transform: scale3d(1, 1, 1);
-        opacity: 1;
-      }
-    }
-
-    .intro h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      color: #e91e63;
-    }
-
-    .intro h2 {
-      font-size: 1.7rem;
-      color: #ff4081;
-      margin-bottom: 1rem;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      animation: fadeInUp 2s ease-in-out;
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    section {
-      padding: 3rem 2rem;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      color: #e91e63;
-      margin-bottom: 2rem;
-      font-family: 'Playfair Display', serif;
-      animation: fadeIn 2s ease-in;
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      animation: fadeInUp 1.5s ease-in;
-    }
-
-    .card {
-      background: linear-gradient(to bottom, #fff, #ffeef0);
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-      width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: #d81b60;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #444;
-    }
-
-    .skills i, .contact-icons i {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #e91e63;
-      animation: popIn 1.2s ease;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .contact-section {
-      background: #ffe6ec;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .contact-icons a {
-      margin: 0 1rem;
-      color: #e91e63;
-      font-size: 2rem;
-      transition: transform 0.3s ease, color 0.3s;
-    }
-
-    .contact-icons a:hover {
-      transform: scale(1.3);
-      color: #ff2a68;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    @media screen and (max-width: 768px) {
-      .intro h1 {
-        font-size: 2rem;
-      }
-
-      .intro h2 {
-        font-size: 1.2rem;
-      }
-
-      nav ul {
-        flex-direction: column;
-        background:linear-gradient(to right, #ff5f6d, #ffc371);
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        display: none;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: white;
-      }
-    }
-    .resume-button {
-      padding: 0.6rem 1.2rem;
-      background-color: #e91e63;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background-color 0.3s;
-      margin-top: 20px;
-    }
-
-    .resume-button:hover {
-      background-color: #c2185b;
-    }
-  .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 1rem;
-    background: linear-gradient(to right, #ffe6ec, #fff5f8);
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  }
-
-  .skill-group {
-    text-align: center;
-    background: white;
-    border-radius: 12px;
-    padding: 1rem;
-    width: 220px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-  }
-
-  .skill-group:hover {
-    transform: translateY(-5px);
-  }
-
-  .skill-button {
-    padding: 0.6rem 1.2rem;
-    font-weight: bold;
-    background: #e91e63;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s;
-  }
-
-  .skill-button:hover {
-    background-color: #c2185b;
-    transform: scale(1.05);
-  }
-
-  .skill-list {
-    list-style: none;
-    margin-top: 0.8rem;
-    padding-left: 0;
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-  .skill-list li {
-    margin: 0.3rem 0;
-    font-size: 1rem;
-    color: #444;
-    transition: transform 0.3s ease;
-  }
-
-  .skill-list li:hover {
-    transform: translateX(5px);
-    color: #e91e63;
-  }
-
-  .skill-group.active .skill-list {
-    display: block;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  </style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+    </style>
 </head>
-
 <body>
-  <!-- Responsive and animated portfolio content goes here -->
-   <header>
-    <div class="logo">
-      <img src="https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/d/8/b/d8bd07eba2fb8156a43041fb1496bb2721da9e49.png" alt="Logo">
-    </div>
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
-      <i class="fas fa-bars"></i>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[2000] transition-all duration-150" style="width: 0%"></div>
+
+    <nav class="fixed top-0 w-full z-[1000] px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass px-6 py-3 rounded-2xl">
+            <div class="text-xl font-bold tracking-tighter">RR<span class="text-indigo-500">.</span></div>
+            <div class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-indigo-400 transition">About</a>
+                <a href="#skills" class="hover:text-indigo-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
+                <a href="#contact" class="btn-premium px-5 py-2 rounded-lg text-white">Hire Me</a>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section class="intro" id="about">
-    <img src="https://ik.imagekit.io/fu4uxhoyq/Passport%20size%20photo.jpg?updatedAt=1750917728154" alt="Profile Picture">
-    <h1>Raja Rajeswari Javvadi</h1>
-    <h2>I am a <span id="career">Web Developer</span></h2>
-    <p>Final-year B.Tech CSE (Data Science) student with a strong foundation in programming (C, Python, Java) and proficiency in SQL database. Skilled in front-end technologies including HTML, CSS, JavaScript, Bootstrap, and Tailwind CSS. Focused on enhancing Python expertise, actively pursuing certifications and internships, and seeking job opportunities to apply and expand my skills.</p>
-    <a class="resume-button" href="https://ik.imagekit.io/fu4uxhoyq/Raja%20Rajeswari%20Javvadi%20Resume.pdf?updatedAt=1746292418353" target="_blank">View My Resume</a>
-  </section>
-
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Graduation</h3>
-        <p><strong>Branch:</strong> CSE - Data Science</p>
-        <p><strong>Year:</strong> 2022 - 2026</p>
-        <p><strong>College:</strong> Sasi Institute of Technology and Engineering</p>
-        <p><strong>CGPA:</strong> 8.84</p>
-      </div>
-      <div class="card">
-        <h3>Intermediate</h3>
-        <p><strong>Branch:</strong> MPC</p>
-        <p><strong>Year:</strong> 2020 - 2022</p>
-        <p><strong>College:</strong> S.V.S.S Arts & Science Jr College</p>
-        <p><strong>Percentage:</strong> 78%</p>
-      </div>
-      <div class="card">
-        <h3>Schooling (S.S.C)</h3>
-        <p><strong>Year:</strong> 2019 - 2020</p>
-        <p><strong>School:</strong> Z.P. Girls High School</p>
-        <p><strong>Percentage:</strong> 98%</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-  <h2 class="section-title" style="text-align:center; color:#e91e63; margin-top:2rem; font-size:2.5rem; font-family: 'Playfair Display', serif;">Skills</h2>
-  <div class="skills-container">
-    <div class="skill-group">
-      <button class="skill-button">Programming</button>
-      <ul class="skill-list">
-        <li>Python</li>
-        <li>C</li>
-        <li>Java</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <button class="skill-button">Web Technologies</button>
-      <ul class="skill-list">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <button class="skill-button">Frameworks</button>
-      <ul class="skill-list">
-        <li>Bootstrap</li>
-        <li>Tailwind</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <button class="skill-button">Libraries</button>
-      <ul class="skill-list">
-        <li>Numpy</li>
-        <li>Pandas</li>
-        <li>Matplotlib</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <button class="skill-button">Version Control</button>
-      <ul class="skill-list">
-        <li>GitHub</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <button class="skill-button">Developer Tools</button>
-      <ul class="skill-list">
-        <li>VSCode</li>
-        <li>Putty</li>
-        <li>CodeBlocks</li>
-        <li>Google Colab</li>
-        <li>Android Studio</li>
-      </ul>
-    </div>
-    <div class="skill-group">
-      <button class="skill-button">Others</button>
-      <ul class="skill-list">
-        <li>SQL</li>
-        <li>MongoDB</li>
-        <li>MS Word</li>
-        <li>MS PowerPoint</li>
-        <li>MS Excel</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://ik.imagekit.io/fu4uxhoyq/prt.png?updatedAt=1736259995560" alt="Personal Portfolio">
-        <h3>Personal Portfolio</h3>
-        <p>A responsive personal website showcasing my skills, resume, and contact info.</p>
-        <div class="links">
-          <a href="https://your-live-demo-link.com/portfolio" target="_blank">Live Demo</a>
-          <a href="https://github.com/yourusername/portfolio" target="_blank">GitHub</a>
+    <section class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-4xl text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 glass rounded-full text-xs font-semibold tracking-widest uppercase text-indigo-300">
+                Available for 2026 Roles
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                Hi, I'm <span class="text-gradient">Raja Rajeswari</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-light text-slate-400 mb-8">
+                Building <span id="typing-text" class="text-white font-semibold"></span><span class="typing-cursor"></span>
+            </h2>
+            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
+                B.Tech CSE student specializing in Data Science. I bridge the gap between robust Python backends and modern, interactive front-end experiences.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="btn-premium px-8 py-4 rounded-xl font-bold shadow-lg">View My Work</a>
+                <a href="#" class="glass px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition">Download CV</a>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <img src="https://ik.imagekit.io/fu4uxhoyq/vibemart.jpg?updatedAt=1736259269047" alt="Shopping Website">
-        <h3>VIBECART Shopping Website</h3>
-        <p>An e-commerce website built using Bootstrap to showcase and purchase items.</p>
-        <div class="links">
-          <a href="https://your-live-demo-link.com/vibecart" target="_blank">Live Demo</a>
-          <a href="https://github.com/yourusername/vibecart" target="_blank">GitHub</a>
+    <section id="skills" class="py-24 px-6 max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold mb-16 text-center">Tech Stack <span class="text-indigo-500">&</span> Mastery</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-2xl skill-card border border-transparent transition-all">
+                <i data-lucide="code-2" class="text-indigo-400 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">Core Programming</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">Python</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">Java</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">C</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">SQL</span>
+                </div>
+            </div>
+            <div class="glass p-8 rounded-2xl skill-card border border-transparent transition-all">
+                <i data-lucide="layout" class="text-purple-400 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">Web Development</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">React Js</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">Tailwind</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">JavaScript</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">Bootstrap</span>
+                </div>
+            </div>
+            <div class="glass p-8 rounded-2xl skill-card border border-transparent transition-all">
+                <i data-lucide="brain-circuit" class="text-pink-400 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">AI & Data Science</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">LLMs</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">RAG</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">NumPy</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-sm">Pandas</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="card">
-        <img src="https://ik.imagekit.io/fu4uxhoyq/restaurant%20img.jpg?updatedAt=1736259622968" alt="Restaurant Website">
-        <h3>Restaurant Website</h3>
-        <p>Modern and interactive restaurant site featuring menu, booking, and contact info.</p>
-        <div class="links">
-          <a href="https://your-live-demo-link.com/restaurant" target="_blank">Live Demo</a>
-          <a href="https://github.com/yourusername/restaurant" target="_blank">GitHub</a>
+    <section id="projects" class="py-24 px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h3 class="text-4xl font-bold mb-4">Featured Projects</h3>
+                    <p class="text-slate-400">Selected work from my journey as a developer.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="group relative overflow-hidden rounded-3xl glass border border-slate-700">
+                    <div class="h-64 bg-slate-800 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+                           <i data-lucide="bot" size="48" class="text-indigo-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] uppercase tracking-widest bg-indigo-500/10 text-indigo-400 px-2 py-1 rounded font-bold">Python</span>
+                            <span class="text-[10px] uppercase tracking-widest bg-purple-500/10 text-purple-400 px-2 py-1 rounded font-bold">LLM</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition">Career Path Recommender</h4>
+                        <p class="text-slate-400 mb-6">An AI-driven platform that suggests personalized career trajectories using Large Language Models.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm font-bold flex items-center hover:underline"><i data-lucide="github" class="mr-2" size="16"></i> Code</a>
+                            <a href="#" class="text-sm font-bold flex items-center hover:underline"><i data-lucide="external-link" class="mr-2" size="16"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-3xl glass border border-slate-700">
+                    <div class="h-64 bg-slate-800 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-pink-500/20 to-orange-500/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+                           <i data-lucide="shopping-cart" size="48" class="text-pink-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-[10px] uppercase tracking-widest bg-pink-500/10 text-pink-400 px-2 py-1 rounded font-bold">React</span>
+                            <span class="text-[10px] uppercase tracking-widest bg-orange-500/10 text-orange-400 px-2 py-1 rounded font-bold">Bootstrap</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition">Vibecart E-commerce</h4>
+                        <p class="text-slate-400 mb-6">A modern shopping experience with optimized UI, real-time filtering, and responsive design components.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm font-bold flex items-center hover:underline"><i data-lucide="github" class="mr-2" size="16"></i> Code</a>
+                            <a href="#" class="text-sm font-bold flex items-center hover:underline"><i data-lucide="external-link" class="mr-2" size="16"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+        <div>
+            <h3 class="text-3xl font-bold mb-10">Education</h3>
+            <div class="space-y-8">
+                <div class="relative pl-8 border-l-2 border-slate-700">
+                    <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-indigo-500"></div>
+                    <h4 class="text-xl font-bold">B.Tech in CSE (Data Science)</h4>
+                    <p class="text-indigo-400 font-semibold mb-2">Sasi Institute of Technology and Engineering</p>
+                    <p class="text-slate-500 text-sm">2022 — 2026 | CGPA: 8.88</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-3xl font-bold mb-10">Certifications</h3>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="glass p-4 rounded-xl flex items-center gap-4 hover:border-indigo-500 transition border border-transparent">
+                    <div class="bg-indigo-500/20 p-3 rounded-lg"><i data-lucide="award" class="text-indigo-400"></i></div>
+                    <div>
+                        <p class="font-bold">Android Developer</p>
+                        <p class="text-xs text-slate-500">AICTE Virtual Internship</p>
+                    </div>
+                </div>
+                <div class="glass p-4 rounded-xl flex items-center gap-4 hover:border-indigo-500 transition border border-transparent">
+                    <div class="bg-purple-500/20 p-3 rounded-lg"><i data-lucide="award" class="text-purple-400"></i></div>
+                    <div>
+                        <p class="font-bold">Python for Data Science</p>
+                        <p class="text-xs text-slate-500">IBM Professional Certification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <div id="certifications">
-    <div class="section-title">Certifications</div>
-    <div class="certifications">
-      <div class="certificate">
-        <a href="https://ik.imagekit.io/fu4uxhoyq/Google%20Android%20Virtual%20Internship.jpg?updatedAt=1728211163861" target="_blank">
-          <img src="https://ik.imagekit.io/fu4uxhoyq/Neutral%20Simple%20Minimalist%20Modern%20Gift%20Certificate%20Voucher%20(1).png?updatedAt=1740154154182" alt="Certification 3" />
-        </a>
-        <span class="certificate-name">Android Developer Certificate from AICTE</span>
-      </div>
-      <div class="certificate">
-        <a href="https://ik.imagekit.io/fu4uxhoyq/AIML%20Virtual%20Internship.jpg?updatedAt=1728211150762" target="_blank">
-          <img src="https://ik.imagekit.io/fu4uxhoyq/Neutral%20Simple%20Minimalist%20Modern%20Gift%20Certificate%20Voucher%20(2).png?updatedAt=1740154154294" alt="Certification 2" />
-        </a>
-        <span class="certificate-name">AI-ML engineer certificate from AICTE</span>
-      </div>
-      <div class="certificate">
-        <a href="https://ik.imagekit.io/fu4uxhoyq/IMG_20241005_210020.jpg?updatedAt=1728142708548" target="_blank">
-          <img src="https://ik.imagekit.io/fu4uxhoyq/Neutral%20Simple%20Minimalist%20Modern%20Gift%20Certificate%20Voucher%20(3).png?updatedAt=1740154154451" alt="Certification 1" />
-        </a>
-        <span class="certificate-name">Mongodb developer certificate from Infosys Springboard</span>
-      </div>
-      <div class="certificate">
-        <a href="https://ik.imagekit.io/fu4uxhoyq/IBM%20Certificatification_page-0001.jpg?updatedAt=1738639598415" target="_blank">
-          <img src="https://ik.imagekit.io/fu4uxhoyq/Neutral%20Simple%20Minimalist%20Modern%20Gift%20Certificate%20Voucher%20(4).png?updatedAt=1740154154400" alt="Certification 1" />
-        </a>
-        <span class="certificate-name">Python for Data Science Certificate from IBM</span>
-      </div>
-      <div class="certificate">
-        <a href="https://ik.imagekit.io/fu4uxhoyq/Deloitte%20Virtual%20internship%20certificate_page-0001.jpg?updatedAt=1740666300882" target="_blank">
-          <img src="https://ik.imagekit.io/fu4uxhoyq/Neutral%20Simple%20Minimalist%20Modern%20Gift%20Certificate%20Voucher%20(5).png?updatedAt=1740666858023" alt="Certification 1" />
-        </a>
-        <span class="certificate-name">Data Analytics Job Simulation Certificate from Deloitte</span>
-      </div>
-    </div>
-  </div>
+    <section id="contact" class="py-24 px-6 bg-indigo-600 rounded-t-[3rem] text-center">
+        <h3 class="text-4xl font-bold mb-6">Let's build something epic.</h3>
+        <p class="mb-10 text-indigo-100 max-w-lg mx-auto">Currently open to internship and full-time opportunities for 2026 graduation batch.</p>
+        <div class="flex justify-center gap-6">
+            <a href="mailto:rajeswari.javvadi@sasi.ac.in" class="bg-white text-indigo-600 px-8 py-3 rounded-xl font-bold hover:scale-105 transition">Email Me</a>
+            <a href="#" class="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:scale-105 transition">LinkedIn</a>
+        </div>
+    </section>
 
+    <footer class="py-10 bg-slate-950 text-center border-t border-slate-900">
+        <p class="text-slate-500 text-sm">© 2026 Raja Rajeswari Javvadi. Built with Passion & Reactivity.</p>
+    </footer>
 
-  <section id="contact" class="contact-section">
-    <h2 class="section-title">Connect With Me</h2>
-    <div class="contact-icons">
-      <a href="https://www.linkedin.com/in/rajeswari-javvadi-130520280/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.instagram.com/raji_javvadi3" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="tel:+919999999999"><i class="fas fa-phone"></i></a>
-      <a href="mailto:rajeswari.javvadi@sasi.ac.in"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/919999999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </section>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-  <footer style="background: linear-gradient(to right, #ffc1cc, #ffe4e1); color: #222; padding: 3rem 1rem 2rem; position: relative; font-family: 'Montserrat', sans-serif;">
-  <!-- Wave Top Border -->
-  <div style="position: absolute; top: -60px; left: 0; width: 100%; overflow: hidden; line-height: 0;">
-    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 80px; width: 100%;">
-      <path d="M0.00,49.98 C150.00,150.00 349.89,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
-            style="stroke: none; fill: #ffe4e1;"></path>
-    </svg>
-  </div>
+        // Typing Effect
+        const textElement = document.getElementById('typing-text');
+        const phrases = ["Web Applications", "AI Solutions", "Data Insights"];
+        let phraseIndex = 0;
+        let charIndex = 0;
 
-  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
-    
-    <!-- Branding -->
-    <div style="flex: 1; min-width: 250px;">
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #e91e63;">Raji's Portfolio</h2>
-      <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #444;">
-        Crafted with passion and precision — showcasing my projects, skills, and growth in tech.
-      </p>
-    </div>
+        function type() {
+            if (charIndex < phrases[phraseIndex].length) {
+                textElement.textContent += phrases[phraseIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
 
-    <!-- Quick Links -->
-    <div style="flex: 1; min-width: 200px;">
-      <h3 style="color: #d81b60; font-size: 1.2rem; margin-bottom: 1rem;">Quick Links</h3>
-      <ul style="list-style: none; padding: 0; line-height: 1.8;">
-        <li><a href="#about" style="color: #555; text-decoration: none;">About Me</a></li>
-        <li><a href="#projects" style="color: #555; text-decoration: none;">Projects</a></li>
-        <li><a href="#contact" style="color: #555; text-decoration: none;">Contact</a></li>
-      </ul>
-    </div>
+        function erase() {
+            if (charIndex > 0) {
+                textElement.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(type, 500);
+            }
+        }
+        type();
 
-    <!-- Social Media -->
-    <div style="flex: 1; min-width: 200px;">
-      <h3 style="color: #d81b60; font-size: 1.2rem; margin-bottom: 1rem;">Connect</h3>
-      <div style="display: flex; gap: 1rem; font-size: 1.8rem;">
-        <a href="https://github.com/yourusername" target="_blank" style="color: #e91e63; transition: transform 0.3s;"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" style="color: #e91e63; transition: transform 0.3s;"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:youremail@example.com" style="color: #e91e63; transition: transform 0.3s;"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </div>
+        // Scroll Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
 
-  <!-- Footer Bottom -->
-  <div style="text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #555;">
-    © 2025 Raji | All Rights Reserved 
-  </div>
-</footer>
-
-
-  <script>
-    const roles = ["Web Developer", "Python Developer", "Data Science Enthusiasist"];
-    let index = 0;
-    setInterval(() => {
-      document.getElementById("career").innerText = roles[index];
-      index = (index + 1) % roles.length;
-    }, 2000);
-    document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.skill-button');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        const parent = button.parentElement;
-        parent.classList.toggle('active');
-      });
-    });
-  });
-  </script>
+        // Scroll Reveal Animations
+        ScrollReveal().reveal('.skill-card', { delay: 200, distance: '50px', origin: 'bottom', interval: 100 });
+        ScrollReveal().reveal('.group', { delay: 300, distance: '50px', origin: 'bottom', interval: 150 });
+    </script>
 </body>
-
 </html>
