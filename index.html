@@ -104,6 +104,20 @@
             z-index: 2000;
             transition: width 0.1s ease-out;
         }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body>
@@ -112,8 +126,9 @@
     <div class="custom-cursor hidden md:block" id="cursor"></div>
 
     <nav class="fixed top-0 w-full z-[100] px-6 py-5">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-panel px-8 py-4 rounded-2xl">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-panel px-8 py-4 rounded-2xl relative">
             <div class="text-2xl font-extrabold tracking-tighter">RR<span class="text-indigo-500">_</span></div>
+            
             <div class="hidden lg:flex items-center space-x-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#education" class="nav-link">Education</a>
@@ -122,7 +137,24 @@
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#certifications" class="nav-link">Certs</a>
             </div>
-            <a href="mailto:rajarajeswarijavvadi@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full transition shadow-lg text-[10px] font-bold uppercase tracking-widest">Hire Me</a>
+
+            <div class="flex items-center space-x-4">
+                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="hidden sm:block bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full transition shadow-lg text-[10px] font-bold uppercase tracking-widest">Hire Me</a>
+                
+                <button id="menu-toggle" class="lg:hidden text-slate-400 hover:text-white transition">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="absolute top-full left-0 w-full mt-4 lg:hidden glass-panel rounded-2xl p-8 flex flex-col space-y-6 text-center">
+                <a href="#about" class="mobile-link text-sm font-bold uppercase tracking-widest">About</a>
+                <a href="#education" class="mobile-link text-sm font-bold uppercase tracking-widest">Education</a>
+                <a href="#tech" class="mobile-link text-sm font-bold uppercase tracking-widest">Stack</a>
+                <a href="#internships" class="mobile-link text-sm font-bold uppercase tracking-widest">Experience</a>
+                <a href="#projects" class="mobile-link text-sm font-bold uppercase tracking-widest">Projects</a>
+                <a href="#certifications" class="mobile-link text-sm font-bold uppercase tracking-widest">Certs</a>
+                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="bg-indigo-600 px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs">Hire Me</a>
+            </div>
         </div>
     </nav>
 
@@ -185,33 +217,33 @@
     </section>
 
     <section id="tech" class="py-32 px-6 max-w-7xl mx-auto reveal">
-        <h2 class="text-4xl font-extrabold mb-20 tracking-tighter text-center">Technical Ecosystem</h2>
+        <h2 class="text-4xl font-extrabold mb-20 tracking-tighter text-center text-indigo-500 uppercase">Technical Ecosystem</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="glass-panel p-8 rounded-3xl">
                 <i data-lucide="code" class="text-indigo-400 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">Languages</h3>
-                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400 font-bold uppercase">
                     <span>Python,</span> <span>Java,</span> <span>C,</span> <span>JavaScript</span>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl">
                 <i data-lucide="layers" class="text-purple-400 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">Frontend</h3>
-                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400 font-bold uppercase">
                     <span>React.js,</span> <span>Tailwind,</span> <span>Bootstrap,</span> <span>HTML5, CSS3</span>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl">
                 <i data-lucide="brain" class="text-pink-400 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">AI/ML</h3>
-                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400 font-bold uppercase">
                     <span>LLMs,</span> <span>RAG,</span> <span>FAISS,</span> <span>Machine Learning</span>
                 </div>
             </div>
             <div class="glass-panel p-8 rounded-3xl">
                 <i data-lucide="settings" class="text-emerald-400 mb-6"></i>
                 <h3 class="text-xl font-bold mb-4 uppercase tracking-wider text-sm">Tools</h3>
-                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400">
+                <div class="flex flex-wrap gap-2 text-xs mono text-slate-400 font-bold uppercase">
                     <span>Git/GitHub,</span> <span>VS Code,</span> <span>Hugging Face,</span> <span>SQL/MongoDB</span>
                 </div>
             </div>
@@ -228,38 +260,38 @@
                         <h3 class="text-2xl font-bold mt-4 mb-2">Web Development Intern</h3>
                         <p class="text-indigo-400 font-bold text-sm mb-6">SkillDzire</p>
                         <ul class="text-slate-400 text-sm space-y-4">
-                            <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500"></i> Developed responsive pages using HTML, CSS, and JS.</li>
-                            <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500"></i> Worked on ETL workflows for reporting.</li>
+                            [cite_start]<li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500"></i> Developed responsive pages improving usability[cite: 33].</li>
+                            [cite_start]<li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-indigo-500"></i> Worked on basic ETL workflows for data reporting[cite: 34].</li>
                         </ul>
                     </div>
-                    <a href="https://drive.google.com/file/d/1FN2SIHbmEUUaGymKL34NH1yX_Qu1Pc17/view?usp=sharing" target="_blank" class="mt-8 inline-flex items-center font-bold text-xs text-indigo-400 hover:text-indigo-300">View Certificate <i data-lucide="arrow-up-right" class="ml-1 w-3 h-3"></i></a>
+                    <a href="https://drive.google.com/file/d/1FN2SIHbmEUUaGymKL34NH1yX_Qu1Pc17/view?usp=sharing" target="_blank" class="mt-8 inline-flex items-center font-bold text-xs text-indigo-400 hover:text-indigo-300 transition">View Certificate <i data-lucide="arrow-up-right" class="ml-1 w-3 h-3"></i></a>
                 </div>
                 <div class="glass-panel p-10 rounded-[2.5rem] flex flex-col justify-between">
                     <div>
                         <span class="text-[10px] font-bold text-purple-500 uppercase tracking-widest">March 2024</span>
-                        <h3 class="text-2xl font-bold mt-4 mb-2">AI/ML Intern</h3>
-                        <p class="text-purple-400 font-bold text-sm mb-6">AICTE Eduskills</p>
+                        <h3 class="text-2xl font-bold mt-4 mb-2 uppercase">AI/ML Intern</h3>
+                        <p class="text-purple-400 font-bold text-sm mb-6 uppercase">AICTE Eduskills</p>
                         <ul class="text-slate-400 text-sm space-y-4">
-                            <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500"></i> Trained Scikit-Learn models for classification.</li>
-                            <li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500"></i> Performed hyperparameter tuning for accuracy.</li>
+                            [cite_start]<li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500"></i> Trained Scikit-Learn models for classification[cite: 36].</li>
+                            [cite_start]<li class="flex items-start"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-purple-500"></i> Performed hyperparameter tuning for accuracy[cite: 37].</li>
                         </ul>
                     </div>
-                    <a href="https://drive.google.com/file/d/1VUQ7Eng4FDYPw000DPXEV5SmhhU2Xp7h/view?usp=drive_link" target="_blank" class="mt-8 inline-flex items-center font-bold text-xs text-purple-400 hover:text-purple-300">View Certificate <i data-lucide="arrow-up-right" class="ml-1 w-3 h-3"></i></a>
+                    <a href="https://drive.google.com/file/d/1VUQ7Eng4FDYPw000DPXEV5SmhhU2Xp7h/view?usp=drive_link" target="_blank" class="mt-8 inline-flex items-center font-bold text-xs text-purple-400 hover:text-purple-300 transition">View Certificate <i data-lucide="arrow-up-right" class="ml-1 w-3 h-3"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="py-32 px-6 max-w-7xl mx-auto reveal">
-        <h2 class="text-4xl font-extrabold mb-16 tracking-tighter">Projects</h2>
+        <h2 class="text-4xl font-extrabold mb-16 tracking-tighter uppercase">Engineering Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="glass-panel overflow-hidden rounded-[2.5rem] group flex flex-col justify-between">
                 <div class="p-10">
-                    <div class="flex space-x-3 mb-6">
-                        <span class="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded text-[10px] font-bold uppercase">Python</span>
-                        <span class="bg-blue-500/10 text-blue-400 px-3 py-1 rounded text-[10px] font-bold uppercase">LLAMA 3.1</span>
+                    <div class="flex space-x-3 mb-6 font-bold uppercase">
+                        <span class="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded text-[10px]">Python</span>
+                        <span class="bg-blue-500/10 text-blue-400 px-3 py-1 rounded text-[10px]">LLAMA 3.1</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-400 transition">Career Path Recommender</h3>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-400 transition uppercase">Career Path Recommender</h3>
                     <p class="text-slate-400 mb-8 leading-relaxed">AI-driven system generating personalized career trajectories using skill profiling and LLM logic.</p>
                 </div>
                 <div class="px-10 pb-10">
@@ -268,11 +300,11 @@
             </div>
             <div class="glass-panel overflow-hidden rounded-[2.5rem] group flex flex-col justify-between">
                 <div class="p-10">
-                    <div class="flex space-x-3 mb-6">
-                        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded text-[10px] font-bold uppercase">RAG</span>
-                        <span class="bg-pink-500/10 text-pink-400 px-3 py-1 rounded text-[10px] font-bold uppercase">FAISS</span>
+                    <div class="flex space-x-3 mb-6 font-bold uppercase">
+                        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded text-[10px]">RAG</span>
+                        <span class="bg-pink-500/10 text-pink-400 px-3 py-1 rounded text-[10px]">FAISS</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-emerald-400 transition">Smart Document QA</h3>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-emerald-400 transition uppercase">Smart Document QA</h3>
                     <p class="text-slate-400 mb-8 leading-relaxed">RAG-based system utilizing FAISS embeddings to answer queries from multiple documents.</p>
                 </div>
                 <div class="px-10 pb-10">
@@ -283,27 +315,27 @@
     </section>
 
     <section id="certifications" class="py-32 px-6 max-w-7xl mx-auto reveal">
-        <h2 class="text-center text-4xl font-extrabold mb-16 tracking-tighter">Professional Badges</h2>
+        <h2 class="text-center text-4xl font-extrabold mb-16 tracking-tighter uppercase text-indigo-500">Professional Badges</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <a href="https://drive.google.com/file/d/1HHSjFdBkp3geTb-OUTyvAyhVjrcSV2U4/view?usp=sharing" target="_blank" class="glass-panel p-6 rounded-2xl flex items-center space-x-5 hover:bg-slate-900/40">
                 <div class="bg-indigo-500/20 p-4 rounded-xl text-indigo-400"><i data-lucide="award"></i></div>
-                <div><h4 class="font-bold text-sm leading-tight">Python for Data Science</h4><p class="text-[10px] text-slate-500 uppercase mt-1">IBM</p></div>
+                <div><h4 class="font-bold text-sm leading-tight uppercase">Python for Data Science</h4><p class="text-[10px] text-slate-500 uppercase mt-1">IBM</p></div>
             </a>
             <a href="https://drive.google.com/file/d/1kgDEt3BucdRbXOTP4SbRfLMq00X_HeG6/view?usp=sharing" target="_blank" class="glass-panel p-6 rounded-2xl flex items-center space-x-5 hover:bg-slate-900/40">
                 <div class="bg-blue-500/20 p-4 rounded-xl text-blue-400"><i data-lucide="award"></i></div>
-                <div><h4 class="font-bold text-sm leading-tight">Data Analytics Simulation</h4><p class="text-[10px] text-slate-500 uppercase mt-1">Deloitte</p></div>
+                <div><h4 class="font-bold text-sm leading-tight uppercase">Data Analytics Simulation</h4><p class="text-[10px] text-slate-500 uppercase mt-1">Deloitte</p></div>
             </a>
             <a href="https://drive.google.com/file/d/14NPml9Usjd9re4ZaE6XMIJ7Y7gZoqhph/view?usp=sharing" target="_blank" class="glass-panel p-6 rounded-2xl flex items-center space-x-5 hover:bg-slate-900/40">
                 <div class="bg-purple-500/20 p-4 rounded-xl text-purple-400"><i data-lucide="award"></i></div>
-                <div><h4 class="font-bold text-sm leading-tight">DotNet Full Stack</h4><p class="text-[10px] text-slate-500 uppercase mt-1">Wipro</p></div>
+                <div><h4 class="font-bold text-sm leading-tight uppercase">DotNet Full Stack</h4><p class="text-[10px] text-slate-500 uppercase mt-1">Wipro</p></div>
             </a>
             <a href="https://drive.google.com/file/d/1brYUF9Qj7i7o8nhCde80SljCobjdzJXb/view?usp=sharing" target="_blank" class="glass-panel p-6 rounded-2xl flex items-center space-x-5 hover:bg-slate-900/40">
                 <div class="bg-pink-500/20 p-4 rounded-xl text-pink-400"><i data-lucide="award"></i></div>
-                <div><h4 class="font-bold text-sm leading-tight">Intro to Generative AI</h4><p class="text-[10px] text-slate-500 uppercase mt-1">IBM SkillsBuild</p></div>
+                <div><h4 class="font-bold text-sm leading-tight uppercase">Intro to Generative AI</h4><p class="text-[10px] text-slate-500 uppercase mt-1">IBM SkillsBuild</p></div>
             </a>
             <a href="https://drive.google.com/file/d/1Zn9j8LKkrThpID339yAGAIN5kslTeObn/view?usp=sharing" target="_blank" class="glass-panel p-6 rounded-2xl flex items-center space-x-5 hover:bg-slate-900/40">
                 <div class="bg-emerald-500/20 p-4 rounded-xl text-emerald-400"><i data-lucide="award"></i></div>
-                <div><h4 class="font-bold text-sm leading-tight">Data Science & Analytics</h4><p class="text-[10px] text-slate-500 uppercase mt-1">HP LIFE</p></div>
+                <div><h4 class="font-bold text-sm leading-tight uppercase">Data Science & Analytics</h4><p class="text-[10px] text-slate-500 uppercase mt-1">HP LIFE</p></div>
             </a>
         </div>
     </section>
@@ -311,14 +343,14 @@
     <footer class="py-20 border-t border-slate-900 bg-slate-950 px-6 text-center">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="text-left">
-                <h3 class="text-2xl font-extrabold tracking-tighter uppercase">RAJA RAJESWARI JAVVADI</h3>
-                <p class="text-slate-500 text-xs mt-2 uppercase tracking-[0.2em]">Attili, Andhra Pradesh, India</p>
+                <h3 class="text-2xl font-extrabold tracking-tighter uppercase text-indigo-500">RAJA RAJESWARI JAVVADI</h3>
+                [cite_start]<p class="text-slate-500 text-xs mt-2 uppercase tracking-[0.2em]">Attili, Andhra Pradesh, India [cite: 2]</p>
             </div>
-            <div class="flex space-x-8 text-slate-400 text-xs uppercase font-bold tracking-widest">
-                <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="hover:text-white transition">GitHub</a>
-                <a href="https://www.linkedin.com/in/raja-rajeswari-javvadi-130520280/" target="_blank" class="hover:text-white transition">LinkedIn</a>
-                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="hover:text-white transition">Email</a>
-                <a href="https://raja-rajeswari-javvadi.github.io/My-Portfolio/" target="_blank" class="hover:text-white transition">Old Portfolio</a>
+            <div class="flex flex-wrap justify-center gap-8 text-slate-400 text-xs uppercase font-bold tracking-widest">
+                [cite_start]<a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="hover:text-white transition">GitHub [cite: 5]</a>
+                [cite_start]<a href="https://www.linkedin.com/in/raja-rajeswari-javvadi-130520280/" target="_blank" class="hover:text-white transition">LinkedIn [cite: 3]</a>
+                [cite_start]<a href="mailto:rajarajeswarijavvadi@gmail.com" class="hover:text-white transition">Email [cite: 4]</a>
+                [cite_start]<a href="https://raja-rajeswari-javvadi.github.io/My-Portfolio/" target="_blank" class="hover:text-white transition">Old Portfolio [cite: 6]</a>
             </div>
             <p class="text-slate-600 text-[10px] uppercase mono">© 2026 Designed & Built by RRJ</p>
         </div>
@@ -334,8 +366,31 @@
             cursor.style.top = e.clientY + 'px';
         });
 
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+            lucide.createIcons();
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
         // Typewriter Effect
-        const text = ["Software Engineer", "Full-Stack Specialist", "AI/ML Enthusiast", "Python Specialist"];
+        const text = ["Aspiring Software Engineer", "AI/ML Enthusiast", "Web Developer", "Python Specialist"];
         let count = 0, index = 0, currentText = "", letter = "";
         (function type() {
             if (count === text.length) count = 0;
