@@ -24,13 +24,6 @@
             transform: translateY(-4px);
             border-color: #6366f1;
         }
-        .nav-blur {
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(8px);
-        }
-        .case-study-gradient {
-            background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, rgba(2, 6, 23, 1) 100%);
-        }
         .status-strip {
             background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
         }
@@ -45,12 +38,12 @@
     <nav class="fixed top-10 w-full z-50 px-6">
         <div class="max-w-6xl mx-auto glass rounded-2xl px-6 h-16 flex items-center justify-between">
             <span class="text-xl font-bold tracking-tighter text-indigo-500">RRJ_</span>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+            <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-400">
                 <a href="#about" class="hover:text-indigo-400 transition">About</a>
                 <a href="#skills" class="hover:text-indigo-400 transition">Skills</a>
-                <a href="#featured" class="hover:text-indigo-400 transition">Case Study</a>
                 <a href="#projects" class="hover:text-indigo-400 transition">Projects</a>
                 <a href="#experience" class="hover:text-indigo-400 transition">Experience</a>
+                <a href="#certifications" class="hover:text-indigo-400 transition">Certifications</a>
             </div>
             <div class="flex items-center gap-4">
                 <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
@@ -61,15 +54,15 @@
 
     <section class="min-h-screen flex items-center px-6 pt-20">
         <div class="max-w-4xl mx-auto">
-            <p class="mono text-indigo-400 mb-4 animate-fade-in text-sm md:text-base">Software Engineer | Full Stack Developer</p>
+            <p class="mono text-indigo-400 mb-4 text-sm md:text-base">Software Engineer | Full Stack Developer</p>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Raja Rajeswari Javvadi.</h1>
             <h2 class="text-3xl md:text-5xl font-bold text-slate-400 mb-8">Building scalable software.</h2>
             <p class="text-lg text-slate-400 max-w-xl mb-12 leading-relaxed">
-                Aspiring Software Developer with hands-on experience in full-stack and AI applications. I specialize in building scalable systems and solving real-world problems through robust, production-ready code.
+                [cite_start]Aspiring Software Developer with hands-on experience in full-stack and AI applications[cite: 8]. [cite_start]I specialize in building scalable systems and solving real-world problems through robust code[cite: 9, 10].
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="#featured" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded font-bold transition flex items-center">
-                    Engineering Case Study <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded font-bold transition flex items-center">
+                    View Case Studies <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
                 </a>
                 <a href="#" class="border border-slate-700 hover:bg-slate-800 px-8 py-4 rounded font-bold transition flex items-center">
                     <i data-lucide="file-down" class="mr-2 w-5 h-5"></i> Download Resume
@@ -81,26 +74,34 @@
     <section id="about" class="py-24 px-6 bg-slate-900/50 reveal">
         <div class="max-w-4xl mx-auto">
             <h3 class="text-2xl font-bold mb-8 flex items-center">
-                <span class="text-indigo-500 mono mr-2 text-sm">01.</span> Engineering Mindset
+                <span class="text-indigo-500 mono mr-2 text-sm">01.</span> Engineering Mindset & Education
             </h3>
             <div class="grid md:grid-cols-3 gap-12">
-                <div class="md:col-span-2 text-slate-400 space-y-4">
+                <div class="md:col-span-2 text-slate-400 space-y-6">
                     <p>
-                        I focus on <strong class="text-slate-200">System Scalability</strong> and <strong class="text-slate-200">Backend Optimization</strong>. As a final year B.Tech student in CSE (Data Science), I specialize in bridging the gap between data-driven insights and production-grade software architecture.
+                        I focus on <strong>System Scalability</strong> and <strong>Backend Optimization</strong>. [cite_start]As a final year B.Tech student in CSE (Data Science)[cite: 11], I specialize in bridging the gap between data-driven insights and production-grade software.
                     </p>
-                    <p>
-                        My core interests lie in building robust <strong class="text-slate-200">RESTful APIs</strong> and architecting <strong class="text-slate-200">RAG systems</strong> that provide grounded AI responses. I am deeply committed to continuous learning across the full-stack development and artificial intelligence landscape.
-                    </p>
-                </div>
-                <div class="glass p-6 rounded-lg text-center h-fit">
+                    
                     <div class="space-y-4">
-                        <div>
-                            <p class="text-indigo-400 font-bold text-3xl">8.84</p>
-                            <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">B.Tech Percentage</p>
+                        <div class="glass p-4 rounded-xl border-l-4 border-indigo-500">
+                            <h4 class="text-white font-bold">B.Tech in CSE - Data Science</h4>
+                            [cite_start]<p class="text-xs">Sasi Institute Of Technology & Engineering [cite: 12]</p>
+                            [cite_start]<p class="text-xs text-indigo-400 font-bold mt-1">Percentage: 88% (Pursuing) [cite: 13]</p>
                         </div>
-                        <div class="h-px bg-slate-800"></div>
-                        <p class="text-xs text-slate-300">Sasi Institute of Tech & Engineering</p>
+                        <div class="glass p-4 rounded-xl border-l-4 border-slate-600">
+                            <h4 class="text-white font-bold">Higher Secondary Education (MPC)</h4>
+                            [cite_start]<p class="text-xs">S.V.S.S Arts & Science Junior College [cite: 15]</p>
+                            [cite_start]<p class="text-xs text-slate-400 mt-1">Percentage: 78% [cite: 16]</p>
+                        </div>
+                        <div class="glass p-4 rounded-xl border-l-4 border-slate-600">
+                            <h4 class="text-white font-bold">Secondary School Education</h4>
+                            [cite_start]<p class="text-xs">Indira Gandhi Girls High School [cite: 18]</p>
+                            [cite_start]<p class="text-xs text-slate-400 mt-1">Percentage: 97% [cite: 19]</p>
+                        </div>
                     </div>
+                </div>
+                <div class="space-y-4">
+                    [cite_start]<p class="text-slate-400">My interest lies in building <strong>RESTful APIs</strong> and architecting <strong>RAG systems</strong> that provide grounded AI responses[cite: 9, 44]. [cite_start]I am committed to continuous learning in the domains of full-stack development and artificial intelligence[cite: 10].</p>
                 </div>
             </div>
         </div>
@@ -117,16 +118,16 @@
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Python</span>
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Java</span>
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">C</span>
-                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">JavaScript</span>
+                    [cite_start]<span class="bg-slate-800 px-3 py-1 rounded text-xs mono">JavaScript</span> [cite: 21]
                 </div>
             </div>
             <div class="glass p-8 rounded-xl">
-                <h4 class="font-bold uppercase tracking-wider text-[10px] text-slate-500 mb-6">Backend & DB</h4>
+                <h4 class="font-bold uppercase tracking-wider text-[10px] text-slate-500 mb-6">Development</h4>
                 <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">React.js</span>
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Node.js</span>
-                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">REST APIs</span>
-                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">MongoDB</span>
-                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">SQL</span>
+                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Tailwind CSS</span>
+                    [cite_start]<span class="bg-slate-800 px-3 py-1 rounded text-xs mono">MongoDB</span> [cite: 22, 23]
                 </div>
             </div>
             <div class="glass p-8 rounded-xl">
@@ -135,6 +136,7 @@
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">LLMs</span>
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">RAG</span>
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">FAISS</span>
+                    [cite_start]<span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Hugging Face</span> [cite: 24]
                 </div>
             </div>
             <div class="glass p-8 rounded-xl">
@@ -142,107 +144,48 @@
                 <div class="flex flex-wrap gap-2">
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">GitHub</span>
                     <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">VS Code</span>
-                    <span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Hugging Face</span>
+                    [cite_start]<span class="bg-slate-800 px-3 py-1 rounded text-xs mono">Git</span> [cite: 24]
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="featured" class="py-24 px-6 case-study-gradient border-t border-slate-800 reveal">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-2xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-2 text-sm">03.</span> Engineering Case Study: Career Path Recommender
-            </h3>
-            
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="space-y-12">
-                    <div>
-                        <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-4">The Problem</h4>
-                        <p class="text-slate-300 leading-relaxed">
-                            Static career advice often misses specific skill gaps. There was a critical need for an AI-driven system capable of generating personalized career roadmaps through real-time skill profiling.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-4">The Solution</h4>
-                        <p class="text-slate-300 leading-relaxed">
-                            I developed a system utilizing <span class="text-white font-semibold">Llama 3.1</span> and Hugging Face Transformers. The engine calculates career match scoring and generates a structured, multi-step roadmap through advanced prompt engineering.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-8 pt-6 border-t border-slate-800">
-                        <div>
-                            <h5 class="text-white font-bold text-sm mb-4">Tech Stack</h5>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-800 px-3 py-1 rounded text-[10px] mono">Python</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded text-[10px] mono">Llama 3.1</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="text-white font-bold text-sm mb-4">Key Features</h5>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-800 px-3 py-1 rounded text-[10px] mono">Match Scoring</span>
-                                <span class="bg-slate-800 px-3 py-1 rounded text-[10px] mono">Roadmap Generation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex space-x-6 pt-8">
-                        <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="bg-white text-slate-950 px-6 py-3 rounded font-bold transition flex items-center text-sm hover:bg-slate-200">
-                            <i data-lucide="github" class="mr-2 w-4 h-4"></i> View Code
-                        </a>
-                        <a href="https://career-path-recommender-using-skill.onrender.com/" target="_blank" class="border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 px-6 py-3 rounded font-bold transition flex items-center text-sm">
-                            <i data-lucide="external-link" class="mr-2 w-4 h-4"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-4 flex items-center justify-center bg-slate-950/50 border-slate-700/50">
-                    <div class="text-center space-y-6">
-                        <i data-lucide="layout" class="w-16 h-16 text-indigo-500 mx-auto opacity-40"></i>
-                        <p class="text-xs text-slate-500 mono uppercase tracking-widest">Logic Flow</p>
-                        <div class="bg-slate-800 p-4 rounded border border-slate-700 text-[10px] mono">
-                            Skill Input -> Llama Processing -> Roadmap Output
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 px-6 bg-slate-950/30 reveal">
+    <section id="projects" class="py-24 px-6 bg-slate-900/30 reveal">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-2xl font-bold mb-12 flex items-center">
-                <span class="text-indigo-500 mono mr-2 text-sm">04.</span> Other Projects
+                <span class="text-indigo-500 mono mr-2 text-sm">03.</span> Featured Engineering Projects
             </h3>
             
             <div class="grid gap-8">
                 <div class="glass p-8 rounded-2xl border border-slate-800 project-card transition-all">
                     <div class="flex justify-between items-start mb-6">
                         <div>
-                            <span class="text-[10px] text-indigo-400 mono uppercase mb-2 block">AI / RAG</span>
-                            <h4 class="text-xl font-bold">Smart Document Question Answering System</h4>
+                            <span class="text-[10px] text-indigo-400 mono uppercase mb-2 block">AI Recommendation Engine</span>
+                            [cite_start]<h4 class="text-xl font-bold uppercase">Career Path Recommender</h4> [cite: 40]
                         </div>
                         <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-500 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
                     </div>
-                    <p class="text-slate-400 text-sm mb-6">Architected a RAG-based system using FAISS and Hugging Face to query information from multiple documents. Implemented a Streamlit interface supporting multi-PDF uploads with contextually grounded responses.</p>
-                    <div class="flex gap-3">
-                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono">Python</span>
-                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono">FAISS</span>
-                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono">Streamlit</span>
+                    [cite_start]<p class="text-slate-400 text-sm mb-6">Developed an AI-driven system generating personalized career paths using skill profiling and LLM recommendation logic[cite: 40]. [cite_start]Built a command-line workflow with career match scoring[cite: 41].</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono uppercase">Python</span>
+                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono uppercase">Llama 3.1</span>
+                        [cite_start]<span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono uppercase">Hugging Face</span> [cite: 40]
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass p-8 rounded-2xl border border-slate-800 project-card transition-all">
-                        <h4 class="text-lg font-bold mb-4">Vibecart E-commerce</h4>
-                        <p class="text-slate-400 text-sm mb-6">A high-performance shopping platform built with Bootstrap, focusing on intuitive UX and product presentation.</p>
-                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono text-indigo-400">Bootstrap / JS</span>
+                <div class="glass p-8 rounded-2xl border border-slate-800 project-card transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="text-[10px] text-indigo-400 mono uppercase mb-2 block">Information Retrieval</span>
+                            [cite_start]<h4 class="text-xl font-bold uppercase">Smart Document QA System</h4> [cite: 42]
+                        </div>
+                        <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-500 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
                     </div>
-                    <div class="glass p-8 rounded-2xl border border-slate-800 project-card transition-all">
-                        <h4 class="text-lg font-bold mb-4">Restaurant Website</h4>
-                        <p class="text-slate-400 text-sm mb-6">Interactive digital menu and reservation site built with a focus on mobile responsiveness.</p>
-                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono text-indigo-400">HTML / CSS / JS</span>
+                    [cite_start]<p class="text-slate-400 text-sm mb-6">Built a RAG-based system to answer queries from multiple documents using embeddings and FAISS retrieval[cite: 43]. [cite_start]Developed a Streamlit interface supporting multi-PDF upload[cite: 44].</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono uppercase">RAG</span>
+                        <span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono uppercase">FAISS</span>
+                        [cite_start]<span class="text-[10px] bg-slate-800 px-2 py-1 rounded mono uppercase">Streamlit</span> [cite: 42]
                     </div>
                 </div>
             </div>
@@ -252,62 +195,79 @@
     <section id="experience" class="py-24 px-6 reveal">
         <div class="max-w-4xl mx-auto">
             <h3 class="text-2xl font-bold mb-12 flex items-center">
-                <span class="text-indigo-500 mono mr-2 text-sm">05.</span> Experience
+                <span class="text-indigo-500 mono mr-2 text-sm">04.</span> Professional Experience
             </h3>
-            
-            <div class="space-y-16">
+            <div class="space-y-12">
                 <div class="relative pl-8 border-l border-slate-800">
                     <div class="absolute w-3 h-3 bg-indigo-500 rounded-full -left-[6.5px] top-1"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h4 class="text-xl font-bold text-white">Web Development Intern</h4>
-                        <span class="text-xs mono text-slate-500">SkillDzire | Nov 2022 - April 2026</span>
-                    </div>
-                    <ul class="text-slate-400 text-sm space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-indigo-500 mr-3 mt-1">▹</span>
-                            <p>Engineered responsive, production-ready web modules using HTML, CSS, and JavaScript.</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-indigo-500 mr-3 mt-1">▹</span>
-                            <p>Implemented ETL workflows to streamline data processing and reporting for key tasks.</p>
-                        </li>
+                    <h4 class="text-xl font-bold text-white uppercase">Web Development Intern</h4>
+                    <p class="text-xs mono text-slate-500">SkillDzire | [cite_start]Nov 2022 - April 2026 [cite: 26, 27]</p>
+                    <ul class="text-slate-400 text-sm space-y-2 mt-4">
+                        [cite_start]<li class="flex items-start"><span class="text-indigo-500 mr-2">▹</span> Developed responsive web pages using HTML, CSS, and JavaScript[cite: 33].</li>
+                        [cite_start]<li class="flex items-start"><span class="text-indigo-500 mr-2">▹</span> Worked on basic ETL workflows for data processing and reporting[cite: 34].</li>
                     </ul>
                 </div>
-
                 <div class="relative pl-8 border-l border-slate-800">
                     <div class="absolute w-3 h-3 bg-indigo-500 rounded-full -left-[6.5px] top-1"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h4 class="text-xl font-bold text-white">AI/ML Intern</h4>
-                        <span class="text-xs mono text-slate-500">AICTE Eduskills</span>
-                    </div>
-                    <ul class="text-slate-400 text-sm space-y-4">
-                        <li class="flex items-start">
-                            <span class="text-indigo-500 mr-3 mt-1">▹</span>
-                            <p>Developed classification models using Scikit-Learn to solve complex data challenges.</p>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-indigo-500 mr-3 mt-1">▹</span>
-                            <p>Conducted data preprocessing and hyperparameter tuning to optimize model performance.</p>
-                        </li>
+                    <h4 class="text-xl font-bold text-white uppercase">AI/ML Intern</h4>
+                    [cite_start]<p class="text-xs mono text-slate-500">AICTE Eduskills [cite: 35]</p>
+                    <ul class="text-slate-400 text-sm space-y-2 mt-4">
+                        [cite_start]<li class="flex items-start"><span class="text-indigo-500 mr-2">▹</span> Built and trained machine learning models using Scikit-Learn[cite: 36].</li>
+                        [cite_start]<li class="flex items-start"><span class="text-indigo-500 mr-2">▹</span> Performed data preprocessing, feature selection, and hyperparameter tuning[cite: 37].</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 px-6 text-center text-[10px] mono text-slate-600 uppercase tracking-widest">
-        Designed & Built by Raja Rajeswari Javvadi &copy; 2026
+    <section id="certifications" class="py-24 px-6 max-w-6xl mx-auto reveal">
+        <h3 class="text-2xl font-bold mb-12 flex items-center">
+            <span class="text-indigo-500 mono mr-2 text-sm">05.</span> Certifications
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass p-6 rounded-xl border border-slate-800">
+                <h5 class="font-bold text-sm">Python for Data Science</h5>
+                [cite_start]<p class="text-[10px] text-slate-500 uppercase">IBM [cite: 46]</p>
+            </div>
+            <div class="glass p-6 rounded-xl border border-slate-800">
+                <h5 class="font-bold text-sm">Data Analytics Job Simulation</h5>
+                [cite_start]<p class="text-[10px] text-slate-500 uppercase">Deloitte [cite: 46]</p>
+            </div>
+            <div class="glass p-6 rounded-xl border border-slate-800">
+                <h5 class="font-bold text-sm">TalentNext Full Stack DotNet</h5>
+                [cite_start]<p class="text-[10px] text-slate-500 uppercase">Wipro [cite: 46]</p>
+            </div>
+            <div class="glass p-6 rounded-xl border border-slate-800">
+                <h5 class="font-bold text-sm">Data Science & Analytics</h5>
+                [cite_start]<p class="text-[10px] text-slate-500 uppercase">HP LIFE [cite: 46]</p>
+            </div>
+            <div class="glass p-6 rounded-xl border border-slate-800">
+                <h5 class="font-bold text-sm">Intro to Generative AI</h5>
+                [cite_start]<p class="text-[10px] text-slate-500 uppercase">IBM SkillsBuild [cite: 46]</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-900 bg-slate-950 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left">
+                <h2 class="text-2xl font-extrabold tracking-tighter text-indigo-500 uppercase">Raja Rajeswari Javvadi</h2>
+                [cite_start]<p class="text-slate-500 text-xs mt-2 uppercase tracking-widest">Attili, Andhra Pradesh, India [cite: 2]</p>
+            </div>
+            <div class="flex gap-8">
+                [cite_start]<a href="mailto:rajarajeswarijavvadi@gmail.com" class="text-slate-400 hover:text-white transition uppercase text-[10px] font-bold tracking-widest">Email</a> [cite: 4]
+                [cite_start]<a href="https://linkedin.com/in/raja-rajeswari" target="_blank" class="text-slate-400 hover:text-white transition uppercase text-[10px] font-bold tracking-widest">LinkedIn</a> [cite: 3]
+                [cite_start]<a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-400 hover:text-white transition uppercase text-[10px] font-bold tracking-widest">GitHub</a> [cite: 5]
+            </div>
+            <div class="text-slate-600 text-[10px] mono uppercase">
+                &copy; 2026 Designed & Built by RRJ
+            </div>
+        </div>
     </footer>
 
     <script>
         lucide.createIcons();
-        ScrollReveal().reveal('.reveal', { 
-            delay: 200, 
-            distance: '20px', 
-            origin: 'bottom',
-            duration: 800,
-            reset: false
-        });
+        ScrollReveal().reveal('.reveal', { delay: 200, distance: '20px', origin: 'bottom', duration: 800, reset: false });
     </script>
 </body>
 </html>
