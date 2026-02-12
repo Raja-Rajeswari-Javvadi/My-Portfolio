@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root {
             --primary: #6366f1;
@@ -29,7 +28,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Premium Section Reveals */
+        /* Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -41,7 +40,45 @@
             transform: translateY(0);
         }
 
-        /* Smooth Navigation Hover */
+        /* Engineering Timeline Styling */
+        .timeline-container {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -5px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* Hover Glow Effects */
+        .tech-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-card:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -15px rgba(99, 102, 241, 0.3);
+        }
+
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
@@ -62,36 +99,19 @@
             width: 100%;
         }
 
-        /* Tech Card Glow */
-        .tech-card {
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .tech-card:hover {
-            border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { 
-            background: #1e293b; 
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
     </style>
 </head>
-<body class="selection:bg-indigo-500/30 selection:text-indigo-200">
+<body>
 
-    <nav class="fixed top-0 w-full z-[100] px-6 py-6 transition-all duration-500" id="navbar">
-        <div class="max-w-6xl mx-auto glass rounded-2xl px-8 h-16 flex items-center justify-between shadow-2xl">
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-8 h-16 flex items-center justify-between shadow-2xl">
             <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/20">R</div>
-                <span class="text-xl font-bold tracking-tighter hidden sm:block">RRJ<span class="text-indigo-500">_</span></span>
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg">R</div>
+                <span class="text-xl font-bold tracking-tighter">RRJ_</span>
             </div>
             
             <div class="hidden md:flex space-x-10 text-xs font-semibold uppercase tracking-widest text-slate-400">
@@ -99,14 +119,14 @@
                 <a href="#skills" class="nav-link hover:text-white">Skills</a>
                 <a href="#projects" class="nav-link hover:text-white">Projects</a>
                 <a href="#experience" class="nav-link hover:text-white">Experience</a>
-                <a href="#certifications" class="nav-link hover:text-white">Certifications</a>
+                <a href="#certifications" class="nav-link hover:text-white">Certs</a>
             </div>
 
             <div class="flex items-center space-x-6">
                 <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-slate-400 hover:text-white transition-colors">
                     <i data-lucide="github" class="w-5 h-5"></i>
                 </a>
-                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="hidden sm:block text-[11px] bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-indigo-500/20 uppercase tracking-wider">
+                <a href="mailto:rajarajeswarijavvadi@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-6 py-2.5 rounded-full font-bold transition-all shadow-lg text-[11px] uppercase tracking-wider">
                     Contact
                 </a>
             </div>
@@ -115,25 +135,21 @@
 
     <section class="min-h-screen flex items-center px-6 relative overflow-hidden">
         <div class="absolute top-1/4 -right-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px]"></div>
-
-        <div class="max-w-4xl mx-auto relative">
-            <p class="mono text-indigo-400 mb-6 text-sm font-medium tracking-widest uppercase opacity-0" id="hero-tag">Software Engineer | Full Stack Developer</p>
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9] opacity-0" id="hero-title">
+        <div class="max-w-5xl mx-auto relative">
+            <p class="mono text-indigo-400 mb-6 text-sm font-medium tracking-widest uppercase animate-pulse">Software Engineer | Full Stack Developer</p>
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 tracking-tighter leading-[0.9]">
                 Raja Rajeswari <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Javvadi.</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed opacity-0" id="hero-desc">
-                Aspiring Software Developer with hands-on experience in full-stack and AI applications. 
-                I build scalable systems and solve real-world problems through robust, production-ready code.
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
+                Specializing in full-stack development and AI applications. I build scalable software systems using Python, React, and Retrieval-Augmented Generation.
             </p>
-            
-            <div class="flex flex-wrap gap-6 opacity-0" id="hero-btns">
+            <div class="flex flex-wrap gap-6">
                 <a href="#projects" class="group bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-4 rounded-full font-bold transition-all flex items-center shadow-xl shadow-indigo-500/20">
-                    View Projects 
+                    View Case Studies 
                     <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1"></i>
                 </a>
-                <a href="#" class="glass px-10 py-4 rounded-full font-bold flex items-center hover:bg-slate-800 transition-all">
-                    <i data-lucide="file-text" class="mr-2 w-5 h-5"></i> Resume
+                <a href="https://linkedin.com/in/raja-rajeswari" target="_blank" class="glass px-10 py-4 rounded-full font-bold flex items-center hover:bg-slate-800 transition-all">
+                    LinkedIn
                 </a>
             </div>
         </div>
@@ -142,45 +158,47 @@
     <section id="about" class="py-32 px-6 reveal">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-4 text-sm">01.</span> Engineering Mindset
+                <span class="text-indigo-500 mono mr-4 text-sm">01.</span> Engineering Journey
             </h3>
             
-            <div class="grid lg:grid-cols-2 gap-20 items-start">
-                <div class="space-y-8">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="space-y-6">
                     <p class="text-xl text-slate-300 leading-relaxed">
-                        I specialize in <span class="text-white font-semibold">System Scalability</span> and <span class="text-white font-semibold">Backend Optimization</span>. As a final year B.Tech student in CSE (Data Science), I bridge the gap between data-driven insights and production-grade software.
+                        My approach focuses on <strong>System Scalability</strong> and <strong>Backend Optimization</strong>. I bridge the gap between data insights and production-grade software.
                     </p>
                     <p class="text-slate-400 leading-relaxed">
-                        My expertise lies in architecting <strong>RESTful APIs</strong> and <strong>RAG systems</strong> that provide grounded AI responses. I am committed to engineering excellence in full-stack development and artificial intelligence.
+                        I specialize in building <strong>RESTful APIs</strong> and <strong>RAG systems</strong> that provide grounded AI responses. I am committed to engineering excellence in full-stack development and artificial intelligence.
                     </p>
-                    
-                    <div class="grid grid-cols-2 gap-6 pt-8">
-                        <div class="glass p-6 rounded-2xl">
-                            <h4 class="text-indigo-400 font-bold text-3xl mb-1">88%</h4>
-                            <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">B.Tech Percentage</p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="glass p-6 rounded-2xl border-l-4 border-indigo-500">
+                            <h4 class="text-indigo-400 font-bold text-3xl">88%</h4>
+                            <p class="text-[10px] uppercase font-bold text-slate-500 mt-1">B.Tech Percentage</p>
                         </div>
-                        <div class="glass p-6 rounded-2xl">
-                            <h4 class="text-purple-400 font-bold text-3xl mb-1">97%</h4>
-                            <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">SSC Percentage</p>
+                        <div class="glass p-6 rounded-2xl border-l-4 border-purple-500">
+                            <h4 class="text-purple-400 font-bold text-3xl">97%</h4>
+                            <p class="text-[10px] uppercase font-bold text-slate-500 mt-1">SSC Percentage</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-8">Academic Path</h4>
-                    <div class="relative pl-8 border-l border-slate-800 space-y-12">
-                        <div class="relative">
-                            <div class="absolute w-3 h-3 bg-indigo-500 rounded-full -left-[38px] top-1 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
-                            <h5 class="font-bold text-lg">B.Tech in CSE - Data Science</h5>
-                            <p class="text-sm text-slate-400">Sasi Institute Of Technology & Engineering</p>
-                            <p class="text-xs text-indigo-400 mt-1 uppercase font-semibold">2022 — 2026</p>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute w-3 h-3 bg-slate-700 rounded-full -left-[38px] top-1"></div>
-                            <h5 class="font-bold text-lg">Higher Secondary Education (MPC)</h5>
-                            <p class="text-sm text-slate-400">S.V.S.S Arts & Science Junior College</p>
-                            <p class="text-xs text-slate-500 mt-1 uppercase font-semibold">Percentage: 78%</p>
-                        </div>
+                <div class="timeline-container space-y-12">
+                    <div class="relative">
+                        <div class="timeline-dot"></div>
+                        <h4 class="text-xl font-bold">B.Tech in CSE - Data Science</h4>
+                        <p class="text-sm text-slate-400 mt-1">Sasi Institute of Technology & Engineering</p>
+                        <p class="text-xs text-indigo-400 font-bold mt-2 uppercase">2022 — 2026 (Pursuing)</p>
+                    </div>
+                    <div class="relative">
+                        <div class="timeline-dot bg-slate-600" style="box-shadow:none;"></div>
+                        <h4 class="text-xl font-bold">Higher Secondary Education (MPC)</h4>
+                        <p class="text-sm text-slate-400 mt-1">S.V.S.S Arts & Science Junior College</p>
+                        <p class="text-xs text-slate-500 font-bold mt-2 uppercase">78% | 2020 — 2022</p>
+                    </div>
+                    <div class="relative">
+                        <div class="timeline-dot bg-slate-600" style="box-shadow:none;"></div>
+                        <h4 class="text-xl font-bold">Secondary School Education</h4>
+                        <p class="text-sm text-slate-400 mt-1">Indira Gandhi Girls High School</p>
+                        <p class="text-xs text-slate-500 font-bold mt-2 uppercase">97% | Completed 2020</p>
                     </div>
                 </div>
             </div>
@@ -198,42 +216,39 @@
                     <i data-lucide="code-2" class="text-indigo-500 mb-6 w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-6 tracking-tight">Languages</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">Python</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">Java</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">C</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">JavaScript</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Python</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Java</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">JavaScript</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">C</span>
                     </div>
                 </div>
-                
                 <div class="glass p-8 rounded-3xl tech-card">
-                    <i data-lucide="layout" class="text-indigo-500 mb-6 w-8 h-8"></i>
-                    <h4 class="font-bold text-lg mb-6 tracking-tight">Development</h4>
+                    <i data-lucide="layers" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <h4 class="font-bold text-lg mb-6 tracking-tight">Full Stack</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">React.js</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">Node.js</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">Tailwind</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">MongoDB</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">React.js</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Node.js</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Tailwind</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">MongoDB</span>
                     </div>
                 </div>
-
                 <div class="glass p-8 rounded-3xl tech-card">
                     <i data-lucide="brain-circuit" class="text-indigo-500 mb-6 w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-6 tracking-tight">AI / ML</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">LLMs</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">RAG</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">FAISS</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">HuggingFace</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">LLMs</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">RAG</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">FAISS</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">HuggingFace</span>
                     </div>
                 </div>
-
                 <div class="glass p-8 rounded-3xl tech-card">
-                    <i data-lucide="terminal" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <i data-lucide="wrench" class="text-indigo-500 mb-6 w-8 h-8"></i>
                     <h4 class="font-bold text-lg mb-6 tracking-tight">Tools</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">GitHub</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">VS Code</span>
-                        <span class="bg-slate-800/50 px-3 py-1.5 rounded-lg text-xs mono border border-slate-800">Git</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">Git/GitHub</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">VS Code</span>
+                        <span class="bg-slate-800 px-3 py-1.5 rounded-lg text-xs mono">SQL</span>
                     </div>
                 </div>
             </div>
@@ -243,55 +258,27 @@
     <section id="projects" class="py-32 px-6 reveal">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-indigo-500 mono mr-4 text-sm">03.</span> Engineering Projects
+                <span class="text-indigo-500 mono mr-4 text-sm">03.</span> Projects
             </h3>
             
             <div class="grid gap-12">
                 <div class="glass p-10 rounded-[2rem] border-slate-800 flex flex-col lg:flex-row gap-12 hover:border-indigo-500/30 transition-all duration-500">
                     <div class="lg:w-1/2">
-                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-4 block">AI Recommendation Engine</span>
+                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-4 block">AI Recommendation</span>
                         <h4 class="text-3xl font-bold mb-6 tracking-tight">Career Path Recommender</h4>
                         <p class="text-slate-400 mb-8 leading-relaxed">
-                            Engineered an AI-driven system generating personalized career trajectories using skill profiling. 
-                            Built with Llama 3.1 and Hugging Face Transformers to calculate match scoring and structured roadmap generation.
+                            AI-driven system generating personalized career roadmaps using skill profiling and LLM recommendation logic. Built with Python and Llama 3.1.
                         </p>
                         <div class="flex flex-wrap gap-3 mb-10">
                             <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">PYTHON</span>
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">LLAMA 3.1</span>
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">NLP</span>
+                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">HUGGINGFACE</span>
                         </div>
-                        <div class="flex space-x-6">
-                            <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-white hover:text-indigo-400 flex items-center font-bold text-sm transition-colors">
-                                <i data-lucide="github" class="mr-2 w-5 h-5"></i> View Repository
-                            </a>
-                        </div>
+                        <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-white hover:text-indigo-400 flex items-center font-bold text-sm transition-colors">
+                            <i data-lucide="github" class="mr-2 w-5 h-5"></i> View Repository
+                        </a>
                     </div>
                     <div class="lg:w-1/2 bg-slate-900/50 rounded-2xl border border-slate-800 flex items-center justify-center p-12">
-                        <i data-lucide="brain-circuit" class="w-32 h-32 text-indigo-500/20"></i>
-                    </div>
-                </div>
-
-                <div class="glass p-10 rounded-[2rem] border-slate-800 flex flex-col lg:flex-row gap-12 hover:border-indigo-500/30 transition-all duration-500">
-                    <div class="lg:w-1/2 order-2 lg:order-1 bg-slate-900/50 rounded-2xl border border-slate-800 flex items-center justify-center p-12">
-                        <i data-lucide="file-search" class="w-32 h-32 text-indigo-500/20"></i>
-                    </div>
-                    <div class="lg:w-1/2 order-1 lg:order-2">
-                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-4 block">RAG Systems</span>
-                        <h4 class="text-3xl font-bold mb-6 tracking-tight">Smart Document QA System</h4>
-                        <p class="text-slate-400 mb-8 leading-relaxed">
-                            Built a RAG-based system to answer queries from multiple complex documents using embeddings and FAISS retrieval. 
-                            Developed a Streamlit interface supporting multi-PDF uploads with grounded conversation history.
-                        </p>
-                        <div class="flex flex-wrap gap-3 mb-10">
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">RAG</span>
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">FAISS</span>
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 px-4 py-1.5 rounded-full font-bold border border-indigo-500/20">STREAMLIT</span>
-                        </div>
-                        <div class="flex space-x-6">
-                            <a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="text-white hover:text-indigo-400 flex items-center font-bold text-sm transition-colors">
-                                <i data-lucide="github" class="mr-2 w-5 h-5"></i> View Repository
-                            </a>
-                        </div>
+                        <i data-lucide="brain-circuit" class="w-32 h-32 text-indigo-500/10"></i>
                     </div>
                 </div>
             </div>
@@ -305,28 +292,30 @@
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass p-8 rounded-3xl group hover:bg-slate-800/50 transition-all border-slate-800">
-                    <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/20 transition-all">
-                        <i data-lucide="award" class="text-indigo-500"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 tracking-tight">Python for Data Science</h4>
-                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">IBM</p>
+                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
+                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <h4 class="font-bold text-lg mb-2">Python for Data Science</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold">IBM</p>
                 </div>
-                
-                <div class="glass p-8 rounded-3xl group hover:bg-slate-800/50 transition-all border-slate-800">
-                    <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/20 transition-all">
-                        <i data-lucide="shield-check" class="text-indigo-500"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 tracking-tight">Data Analytics Job Simulation</h4>
-                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">Deloitte</p>
+                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
+                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <h4 class="font-bold text-lg mb-2">Data Analytics Simulation</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold">Deloitte</p>
                 </div>
-
-                <div class="glass p-8 rounded-3xl group hover:bg-slate-800/50 transition-all border-slate-800">
-                    <div class="w-12 h-12 bg-indigo-600/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600/20 transition-all">
-                        <i data-lucide="zap" class="text-indigo-500"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 tracking-tight">TalentNext Full Stack DotNet</h4>
-                    <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">Wipro</p>
+                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
+                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <h4 class="font-bold text-lg mb-2">TalentNext Full Stack</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold">Wipro</p>
+                </div>
+                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
+                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <h4 class="font-bold text-lg mb-2">Data Science & Analytics</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold">HP LIFE</p>
+                </div>
+                <div class="glass p-8 rounded-3xl tech-card group border-slate-800">
+                    <i data-lucide="award" class="text-indigo-500 mb-6 w-8 h-8"></i>
+                    <h4 class="font-bold text-lg mb-2">Intro to Generative AI</h4>
+                    <p class="text-xs text-slate-500 uppercase font-bold">IBM SkillsBuild</p>
                 </div>
             </div>
         </div>
@@ -334,10 +323,10 @@
 
     <footer class="py-20 border-t border-slate-900 bg-slate-950 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
                 <div>
                     <h2 class="text-3xl font-extrabold tracking-tighter text-white mb-4">Raja Rajeswari Javvadi</h2>
-                    <p class="text-slate-500 max-w-sm">Building the future of software with precision engineering and AI innovation.</p>
+                    <p class="text-slate-500 max-w-sm">Building software with precision engineering and AI innovation.</p>
                 </div>
                 <div class="flex gap-10">
                     <div class="space-y-4">
@@ -347,22 +336,10 @@
                             <li><a href="https://github.com/Raja-Rajeswari-Javvadi" target="_blank" class="hover:text-white transition">GitHub</a></li>
                         </ul>
                     </div>
-                    <div class="space-y-4">
-                        <h4 class="text-[10px] uppercase font-bold tracking-widest text-indigo-500">Quick Links</h4>
-                        <ul class="space-y-2 text-sm text-slate-400">
-                            <li><a href="#about" class="hover:text-white transition">About</a></li>
-                            <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-            
-            <div class="flex flex-col sm:flex-row justify-between items-center pt-10 border-t border-slate-900 gap-6">
-                <p class="text-slate-600 text-[10px] uppercase tracking-widest mono">© 2026 Designed & Built by RRJ</p>
-                <div class="flex items-center text-slate-600 text-[10px] mono uppercase tracking-widest">
-                    <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span>
-                    Attili, Andhra Pradesh, India
-                </div>
+            <div class="pt-10 border-t border-slate-900 mt-10 text-center text-slate-600 text-[10px] mono uppercase tracking-widest">
+                © 2026 Designed & Built by RRJ | Attili, Andhra Pradesh, India
             </div>
         </div>
     </footer>
@@ -370,8 +347,8 @@
     <script>
         lucide.createIcons();
 
-        // High-end Reveal Animation
-        const observerOptions = { threshold: 0.15 };
+        // Scroll Reveal Logic
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -379,31 +356,6 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Hero Sequence
-        window.addEventListener('load', () => {
-            const sequence = ['hero-tag', 'hero-title', 'hero-desc', 'hero-btns'];
-            sequence.forEach((id, i) => {
-                setTimeout(() => {
-                    const el = document.getElementById(id);
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                    el.classList.add('transition-all', 'duration-1000', 'ease-out');
-                }, 200 * i);
-            });
-        });
-
-        // Sticky Navbar Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.style.paddingTop = '1rem';
-                nav.style.paddingBottom = '1rem';
-            } else {
-                nav.style.paddingTop = '1.5rem';
-                nav.style.paddingBottom = '1.5rem';
-            }
-        });
     </script>
 </body>
 </html>
